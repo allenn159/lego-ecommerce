@@ -4,11 +4,11 @@ import {
   Toolbar,
   IconButton,
   Badge,
-  MenuItem,
-  Menu,
   Typography,
+  Button,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
+import Dropdown from "./Dropdown";
 
 import logo from "../../assets/lego.jpeg";
 import useStyles from "./styles";
@@ -21,6 +21,9 @@ const Navbar = () => {
         <Toolbar>
           <Typography>
             <img src={logo} className={classes.image} />
+          </Typography>
+          <Typography className={classes.button}>
+            <Dropdown />
           </Typography>
         </Toolbar>
       </AppBar>
