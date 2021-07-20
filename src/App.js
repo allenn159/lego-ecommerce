@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { commerce } from "./lib/commerce";
+import { Navbar } from "./components";
+import theme from "./components/Theme";
+import { ThemeProvider } from "@material-ui/core";
 
-function App() {
+const App = () => {
+  const fetchProducts = async () => {
+    const { data } = await commerce.products.list();
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Navbar />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
