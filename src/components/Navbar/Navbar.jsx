@@ -13,21 +13,28 @@ import Dropdown from "./Dropdown";
 import logo from "../../assets/lego.jpeg";
 import useStyles from "./styles";
 
-const Navbar = () => {
+const Navbar = ({ categories }) => {
   const classes = useStyles();
   return (
-    <>
+    <div>
       <AppBar position="fixed" className={classes.appBar} color="primary">
-        <Toolbar>
-          <Typography>
+        <Toolbar className={classes.toolbar}>
+          <Typography component={"div"}>
             <img src={logo} className={classes.image} />
           </Typography>
-          <Typography className={classes.button}>
-            <Dropdown />
+          <Typography component={"div"} className={classes.button}>
+            <Dropdown categories={categories} />
           </Typography>
+          <div className={classes.cart}>
+            <IconButton aria-label="cart">
+              <Badge color="secondary">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
-    </>
+    </div>
   );
 };
 

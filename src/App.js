@@ -5,17 +5,30 @@ import theme from "./components/Theme";
 import { ThemeProvider } from "@material-ui/core";
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
-    console.log(data);
+    setProducts(data);
+  };
+
+  const fetchCategories = async () => {
+    const { data } = await commerce.categories.list();
+    setCategories(data.reverse());
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
+      <Navbar categories={categories} />
     </ThemeProvider>
   );
 };

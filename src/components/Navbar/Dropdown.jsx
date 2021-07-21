@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Menu, MenuItem, Button } from "@material-ui/core";
 import useStyles from "./styles";
 
-const Dropdown = () => {
+const Dropdown = ({ categories }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -32,10 +33,13 @@ const Dropdown = () => {
         transformOrigin={{ vertical: "top", horizontal: "center" }}
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        className={classes.dropdown}
       >
-        <MenuItem onClick={handleClose}>Category</MenuItem>
-        <MenuItem onClick={handleClose}>Category</MenuItem>
-        <MenuItem onClick={handleClose}>Category</MenuItem>
+        {categories.map((category) => (
+          <MenuItem onClick={handleClose} key={category.name}>
+            {category.name}
+          </MenuItem>
+        ))}
       </Menu>
     </div>
   );

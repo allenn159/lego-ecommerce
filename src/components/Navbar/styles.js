@@ -5,6 +5,9 @@ export default makeStyles((theme) => ({
     boxShadow: "none",
     borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
   },
+  toolbar: {
+    display: "flex",
+  },
   image: {
     display: "flex",
     flexGrow: 1,
@@ -13,7 +16,7 @@ export default makeStyles((theme) => ({
     height: "75px",
     paddingTop: "1px",
     marginLeft: "200px",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginLeft: 0,
     },
   },
@@ -31,5 +34,17 @@ export default makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "transparent",
     },
+  },
+  cart: {
+    flexGrow: 2,
+    display: "flex",
+    justifyContent: "flex-end",
+    marginRight: "200px",
+    [theme.breakpoints.down("md")]: {
+      marginRight: 0,
+    },
+  },
+  dropdown: {
+    marginTop: "15px",
   },
 }));
