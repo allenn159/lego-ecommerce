@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import Dropdown from "./Dropdown";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/lego.jpeg";
 import useStyles from "./styles";
@@ -20,7 +21,9 @@ const Navbar = ({ categories }) => {
       <AppBar position="fixed" className={classes.appBar} color="primary">
         <Toolbar className={classes.toolbar}>
           <Typography component={"div"}>
-            <img src={logo} className={classes.image} />
+            <Link to="/">
+              <img src={logo} className={classes.image} />
+            </Link>
           </Typography>
           <Typography component={"div"} className={classes.button}>
             <Dropdown categories={categories} />

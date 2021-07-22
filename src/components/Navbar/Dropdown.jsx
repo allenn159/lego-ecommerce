@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, MenuItem, Button } from "@material-ui/core";
 import useStyles from "./styles";
+import { Link } from "react-router-dom";
 
 const Dropdown = ({ categories }) => {
   const classes = useStyles();
@@ -36,9 +37,15 @@ const Dropdown = ({ categories }) => {
         className={classes.dropdown}
       >
         {categories.map((category) => (
-          <MenuItem onClick={handleClose} key={category.name}>
-            {category.name}
-          </MenuItem>
+          <Link
+            className={classes.dropdown}
+            to={`/categoryproduct/${category.slug}`}
+            key={category.name}
+          >
+            <MenuItem onClick={handleClose} key={category.name}>
+              {category.name}
+            </MenuItem>
+          </Link>
         ))}
       </Menu>
     </div>
