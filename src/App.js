@@ -36,7 +36,7 @@ const App = () => {
             <Frontpage />
           </Route>
           <Route exact path="/categoryproduct/:slug">
-            <CategoryProducts products={products} categories={categories} />
+            <CategoryProducts />
           </Route>
         </Switch>
       </ThemeProvider>
