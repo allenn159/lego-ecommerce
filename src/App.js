@@ -30,7 +30,7 @@ const App = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Navbar categories={categories} />
+        <Navbar categories={categories} gutterbottom />
         <Switch>
           <Route exact path="/">
             <Frontpage />
