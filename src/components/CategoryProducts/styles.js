@@ -7,13 +7,18 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  paper: {
+    display: "flex",
+    justifyContent: "center",
+  },
   image: {
-    height: "550px",
-    width: "1000px",
-    border: "2px solid black",
-    [theme.breakpoints.down("md")]: {
-      height: "auto",
-      width: "100%",
+    height: "400px",
+    width: "400px",
+  },
+  loader: {
+    marginTop: "350px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "200px",
     },
   },
 }));

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { commerce } from "../../lib/commerce";
 import useStyles from "./styles";
-import { CircularProgress, Grid } from "@material-ui/core";
+import { CircularProgress, Grid, Paper } from "@material-ui/core";
 
 const CategoryProducts = () => {
   const classes = useStyles();
@@ -27,14 +27,24 @@ const CategoryProducts = () => {
     fetchSlugs();
   }, [path]);
 
+  console.log(products);
+
   return (
     <div className={classes.container}>
       {loading ? (
-        <CircularProgress />
+        <CircularProgress className={classes.loader} />
       ) : (
-        <Grid>
+        <Grid container spacing={2}>
           {products.map((product) => (
-            <div>{product.name}</div>
+            <Grid item md={4} xs={12}>
+              <Paper className={classes.paper} elevation={3} key={product.id}>
+                <img
+                  className={classes.image}
+                  src={`${product.assets[0].url}`}
+                />
+              </Paper>
+              <div>{product.name}</div>
+            </Grid>
           ))}
         </Grid>
       )}
