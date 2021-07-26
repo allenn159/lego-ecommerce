@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { commerce } from "./lib/commerce";
-import { Navbar, Frontpage, CategoryProducts } from "./components";
+import { Navbar, Frontpage, CategoryProducts, ProductPage } from "./components";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@material-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -37,6 +37,9 @@ const App = () => {
           </Route>
           <Route exact path="/categoryproduct/:slug">
             <CategoryProducts />
+          </Route>
+          <Route exact path="/product/:id">
+            <ProductPage />
           </Route>
         </Switch>
       </ThemeProvider>
