@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { commerce } from "../../lib/commerce";
-import useStyles from "./styles";
 import { CircularProgress, Grid, Paper } from "@material-ui/core";
+
+import useStyles from "./styles";
 
 const CategoryProducts = () => {
   const classes = useStyles();

@@ -1,0 +1,45 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel .slide {
+  height: 90vh;
+}
+
+.slide {
+  width: 20vw;
+}
+
+.slider-wrapper.axis-horizontal {
+  width: 50vw;
+}
+
+.carousel .slide img {
+  max-height: 100%;
+  width: auto;
+}
+
+img {
+  height: 80%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .slider-wrapper.axis-horizontal {
+    width: 80vw;
+  }
+
+  .carousel .slide img {
+    max-height: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .slider-wrapper.axis-horizontal {
+    width: 100vw;
+  }
+
+  .carousel .slide img {
+    max-height: 50%;
+  }
+}

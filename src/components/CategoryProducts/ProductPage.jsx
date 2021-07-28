@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { commerce } from "../../lib/commerce";
-import useStyles from "./styles";
 import { CircularProgress } from "@material-ui/core";
+import ImageCarousel from "../Carousels/ImageCarousel";
+import ProductDescription from "./ProductDescription";
+
+import useStyles from "./styles";
 
 const ProductPage = () => {
   const classes = useStyles();
   let location = useLocation();
   const path = location.pathname.split("/")[2];
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState();
   const [loading, setLoading] = useState(false);
 
   const fetchProduct = async () => {
@@ -23,12 +26,17 @@ const ProductPage = () => {
     fetchProduct();
   }, [path]);
 
+  console.log(product);
+
   return (
     <div className={classes.container}>
       {loading ? (
         <CircularProgress className={classes.loader} />
       ) : (
-        <div>{console.log(product)}</div>
+        <div className={classes.productinfo}>
+          {product && <ImageCarousel product={product} />}
+          {product && <ProductDescription product={product} />}
+        </div>
       )}
     </div>
   );

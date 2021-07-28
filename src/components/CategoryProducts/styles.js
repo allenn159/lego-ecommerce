@@ -21,4 +21,11 @@ export default makeStyles((theme) => ({
       marginTop: "200px",
     },
   },
+  productinfo: {
+    display: "flex",
+    justifyContent: "center",
+    [theme.breakpoints.down("md")]: {
+      flexWrap: "wrap",
+    },
+  },
 }));

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Menu, MenuItem, Button } from "@material-ui/core";
-import useStyles from "./styles";
 import { Link } from "react-router-dom";
+
+import useStyles from "./styles";
 
 const Dropdown = ({ categories }) => {
   const classes = useStyles();
