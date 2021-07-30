@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
       marginTop: "200px",
     },
   },
-  productinfo: {
+  productInfo: {
     display: "flex",
     justifyContent: "center",
     fontFamily: "Poppins",
@@ -40,5 +40,18 @@ export default makeStyles((theme) => ({
   },
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
+  },
+  button: {
+    marginLeft: "25px",
+    marginRight: "20px",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: 0,
+    },
+  },
+  productText: {
+    marginLeft: "25px",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: 0,
+    },
   },
 }));

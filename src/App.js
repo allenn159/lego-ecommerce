@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const App = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [cart, setCart] = useState({});
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -19,12 +20,17 @@ const App = () => {
     setCategories(data.reverse());
   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  const fetchCart = async () => {
+    await commerce.cart.retrieve().then((c) => {
+      setCart(c);
+      console.log(c);
+    });
+  };
 
   useEffect(() => {
+    fetchProducts();
     fetchCategories();
+    fetchCart();
   }, []);
 
   return (

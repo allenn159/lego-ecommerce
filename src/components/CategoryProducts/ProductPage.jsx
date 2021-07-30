@@ -26,14 +26,12 @@ const ProductPage = () => {
     fetchProduct();
   }, [path]);
 
-  console.log(product);
-
   return (
     <div className={classes.container}>
       {loading ? (
         <CircularProgress className={classes.loader} />
       ) : (
-        <div className={classes.productinfo}>
+        <div className={classes.productInfo}>
           {product && <ImageCarousel product={product} />}
           {product && <ProductDescription product={product} />}
         </div>

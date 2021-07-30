@@ -20,13 +20,9 @@ const ProductDescription = ({ product }) => {
 
   return (
     <div>
-      <p>{description}</p>
+      <p className={classes.productText}>{description}</p>
       <FormControl className={classes.form}>
-        <Button
-          style={{ marginRight: "20px" }}
-          variant="contained"
-          color="primary"
-        >
+        <Button className={classes.button} variant="contained" color="primary">
           Add to cart
         </Button>
         <Select

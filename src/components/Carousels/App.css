@@ -6,6 +6,10 @@ li:hover {
   cursor: pointer;
 }
 
+ul.thumbs.animated {
+  padding: none;
+}
+
 .carousel {
   display: flex;
   justify-content: center;
@@ -32,6 +36,26 @@ li:hover {
   width: auto;
 }
 
+@media only screen and (max-width: 1650px) {
+  .slider-wrapper.axis-horizontal {
+    width: 50vw;
+  }
+
+  .carousel .slide img {
+    max-height: 70%;
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  .slider-wrapper.axis-horizontal {
+    width: 60vw;
+  }
+
+  .carousel .slide img {
+    max-height: 70%;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .slider-wrapper.axis-horizontal {
     width: 100vw;
@@ -42,12 +66,52 @@ li:hover {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
+  .slider-wrapper.axis-horizontal {
+    width: 85vw;
+  }
+
+  .carousel .slide img {
+    max-height: 70%;
+  }
+}
+
+@media only screen and (max-width: 605px) {
+  ul.thumbs.animated {
+    display: none;
+  }
   .slider-wrapper.axis-horizontal {
     width: 100vw;
   }
 
   .carousel .slide img {
-    max-height: 40%;
+    max-height: 50%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  ul.thumbs.animated {
+    display: none;
+  }
+  .slider-wrapper.axis-horizontal {
+    width: 100vw;
+  }
+
+  .carousel .slide img {
+    max-height: 35%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  ul.thumbs.animated {
+    display: none;
+  }
+
+  .slider-wrapper.axis-horizontal {
+    width: 100vw;
+  }
+
+  .carousel .slide img {
+    max-height: 50%;
   }
 }
