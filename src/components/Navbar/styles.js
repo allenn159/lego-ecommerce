@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
   },
   toolbar: {
     display: "flex",
+    width: "100vw",
   },
   image: {
     display: "flex",
@@ -39,10 +40,7 @@ export default makeStyles((theme) => ({
     flexGrow: 2,
     display: "flex",
     justifyContent: "flex-end",
-    marginRight: "200px",
-    [theme.breakpoints.down("md")]: {
-      marginRight: 0,
-    },
+    marginRight: "50px",
   },
   dropdown: {
     marginTop: "15px",

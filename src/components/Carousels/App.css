@@ -1,3 +1,11 @@
+img {
+  height: 80%;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
 .carousel {
   display: flex;
   justify-content: center;
@@ -11,6 +19,10 @@
   width: 20vw;
 }
 
+.slide:hover {
+  cursor: default;
+}
+
 .slider-wrapper.axis-horizontal {
   width: 50vw;
 }
@@ -20,17 +32,13 @@
   width: auto;
 }
 
-img {
-  height: 80%;
-}
-
 @media only screen and (max-width: 1200px) {
   .slider-wrapper.axis-horizontal {
-    width: 80vw;
+    width: 100vw;
   }
 
   .carousel .slide img {
-    max-height: 100%;
+    max-height: 65%;
   }
 }
 
@@ -40,6 +48,6 @@ img {
   }
 
   .carousel .slide img {
-    max-height: 50%;
+    max-height: 40%;
   }
 }

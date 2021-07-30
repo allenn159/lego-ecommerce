@@ -1,7 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  Button,
+  InputLabel,
+  MenuItem,
+  Select,
+  FormControl,
+} from "@material-ui/core";
+
+import useStyles from "./styles";
 
 const ProductDescription = ({ product }) => {
-  return <div>{product.description}</div>;
+  const classes = useStyles();
+  const [quantity, setQuantity] = useState(1);
+  const description = product.description.split('"')[1];
+
+  const handleChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
+  return (
+    <div>
+      <p>{description}</p>
+      <FormControl className={classes.form}>
+        <Button
+          style={{ marginRight: "20px" }}
+          variant="contained"
+          color="primary"
+        >
+          Add to cart
+        </Button>
+        <Select
+          style={{ textAlign: "center", width: "75px" }}
+          value={quantity}
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
 };
 
 export default ProductDescription;

@@ -14,6 +14,10 @@ export default makeStyles((theme) => ({
   image: {
     height: "400px",
     width: "400px",
+    [theme.breakpoints.down("sm")]: {
+      height: "auto",
+      width: "90vw",
+    },
   },
   loader: {
     marginTop: "350px",
@@ -24,8 +28,17 @@ export default makeStyles((theme) => ({
   productinfo: {
     display: "flex",
     justifyContent: "center",
+    fontFamily: "Poppins",
     [theme.breakpoints.down("md")]: {
       flexWrap: "wrap",
+      width: "80vw",
     },
+  },
+  form: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
   },
 }));
