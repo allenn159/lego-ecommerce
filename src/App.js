@@ -27,16 +27,26 @@ const App = () => {
     });
   };
 
+  const onAddToCart = async (product, quantity) => {
+    await commerce.cart.add(product, quantity).then((c) => {
+      setCart(c);
+    });
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCategories();
     fetchCart();
   }, []);
 
+  useEffect(() => {
+    fetchCart();
+  }, [cart]);
+
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Navbar categories={categories} gutterbottom />
+        <Navbar cart={cart} categories={categories} gutterbottom />
         <Switch>
           <Route exact path="/">
             <Frontpage />
@@ -45,7 +55,7 @@ const App = () => {
             <CategoryProducts />
           </Route>
           <Route exact path="/product/:id">
-            <ProductPage />
+            <ProductPage onAddToCart={onAddToCart} />
           </Route>
         </Switch>
       </ThemeProvider>

@@ -7,7 +7,7 @@ import ProductDescription from "./ProductDescription";
 
 import useStyles from "./styles";
 
-const ProductPage = () => {
+const ProductPage = ({ onAddToCart }) => {
   const classes = useStyles();
   let location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -33,7 +33,9 @@ const ProductPage = () => {
       ) : (
         <div className={classes.productInfo}>
           {product && <ImageCarousel product={product} />}
-          {product && <ProductDescription product={product} />}
+          {product && (
+            <ProductDescription onAddToCart={onAddToCart} product={product} />
+          )}
         </div>
       )}
     </div>

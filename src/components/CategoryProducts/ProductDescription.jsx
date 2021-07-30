@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { commerce } from "../../lib/commerce";
 import {
   Button,
   InputLabel,
@@ -9,7 +10,7 @@ import {
 
 import useStyles from "./styles";
 
-const ProductDescription = ({ product }) => {
+const ProductDescription = ({ product, onAddToCart }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
   const description = product.description.split('"')[1];
@@ -22,7 +23,12 @@ const ProductDescription = ({ product }) => {
     <div>
       <p className={classes.productText}>{description}</p>
       <FormControl className={classes.form}>
-        <Button className={classes.button} variant="contained" color="primary">
+        <Button
+          onClick={() => onAddToCart(`${product.id}`, quantity)}
+          className={classes.button}
+          variant="contained"
+          color="primary"
+        >
           Add to cart
         </Button>
         <Select
