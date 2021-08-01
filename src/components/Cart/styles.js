@@ -5,6 +5,11 @@ export default makeStyles((theme) => ({
     marginTop: "95px",
     display: "flex",
     justifyContent: "center",
+    margin: "0 25px",
+  },
+  paper: {
+    display: "flex",
+    justifyContent: "center",
   },
   lineItems: {
     display: "flex",
@@ -13,4 +18,5 @@ export default makeStyles((theme) => ({
     padding: "25px 0",
     fontFamily: "Poppins",
   },
+  textField: {},
 }));

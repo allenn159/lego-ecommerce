@@ -15,6 +15,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [cart, setCart] = useState({});
+  const [cartItems, setCartItems] = useState([]);
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -29,11 +30,18 @@ const App = () => {
   const fetchCart = async () => {
     await commerce.cart.retrieve().then((c) => {
       setCart(c);
+      setCartItems(c.line_items);
     });
   };
 
   const onAddToCart = async (product, quantity) => {
-    await commerce.cart.add(product, quantity).then((c) => {
+    await commerce.cart.add(product, quantity).then(() => {
+      fetchCart();
+    });
+  };
+
+  const onUpdateCart = async (product, quantity) => {
+    await commerce.cart.update(product, quantity).then((c) => {
       fetchCart();
     });
   };
@@ -47,7 +55,11 @@ const App = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Navbar cart={cart} categories={categories} gutterbottom />
+        <Navbar
+          totalItems={cart.total_items}
+          categories={categories}
+          gutterbottom
+        />
         <Switch>
           <Route exact path="/">
             <Frontpage />
@@ -59,7 +71,7 @@ const App = () => {
             <ProductPage onAddToCart={onAddToCart} />
           </Route>
           <Route exact path="/cart">
-            <Cart cart={cart} />
+            <Cart onUpdateCart={onUpdateCart} cartItems={cartItems} />
           </Route>
         </Switch>
       </ThemeProvider>

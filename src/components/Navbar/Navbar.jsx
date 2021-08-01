@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/lego.jpeg";
 import useStyles from "./styles";
 
-const Navbar = ({ categories, cart }) => {
+const Navbar = ({ categories, totalItems }) => {
   const classes = useStyles();
 
   return (
@@ -31,7 +31,7 @@ const Navbar = ({ categories, cart }) => {
           <div className={classes.cart}>
             <Link to="/cart">
               <IconButton aria-label="cart">
-                <Badge badgeContent={cart.total_items} color="secondary">
+                <Badge badgeContent={totalItems} color="secondary">
                   <ShoppingCart />
                 </Badge>
               </IconButton>

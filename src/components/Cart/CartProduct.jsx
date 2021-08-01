@@ -1,23 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { commerce } from "../../lib/commerce";
+import { TextField } from "@material-ui/core";
 
 import useStyles from "./styles";
 
-const CartProduct = ({ cart }) => {
+const CartProduct = ({ item, onUpdateCart }) => {
   const classes = useStyles();
-  console.log(cart.line_items);
+  const [quantity, setQuantity] = useState(item.quantity);
 
-  if (!cart.line_items) return null;
+  const onHandleChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
+  useEffect(() => {
+    onUpdateCart(item.id, { quantity: quantity });
+  }, [quantity]);
 
   return (
     <div>
-      {cart.line_items.map((e) => {
-        return (
-          <div className={classes.lineItems}>
-            <img width="200px" src={e.media.source} />
-            <p>{e.product_name}</p>
-          </div>
-        );
-      })}
+      <div className={classes.lineItems}>
+        <img width="200px" src={item.media.source} />
+        <p style={{ marginLeft: "100px", width: "950px" }}>
+          {item.product_name}
+        </p>
+        <TextField
+          style={{
+            marginRight: "30px",
+            width: "125px",
+          }}
+          size="medium"
+          label="Quantity"
+          type="number"
+          variant="outlined"
+          value={quantity}
+          onChange={onHandleChange}
+        />
+        <p
+          style={{
+            marginRight: "50px",
+          }}
+        >
+          Total: ${item.price.formatted * item.quantity}
+        </p>
+      </div>
     </div>
   );
 };
