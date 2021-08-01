@@ -2,15 +2,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   container: {
-    position: "relative",
     marginTop: "95px",
     display: "flex",
     justifyContent: "center",
   },
-  loader: {
-    marginTop: "350px",
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "200px",
-    },
+  lineItems: {
+    display: "flex",
+    alignItems: "center",
+    margin: " 0 0 25px 200px",
+    padding: "25px 0",
+    fontFamily: "Poppins",
   },
 }));

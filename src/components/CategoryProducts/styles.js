@@ -19,6 +19,9 @@ export default makeStyles((theme) => ({
       width: "90vw",
     },
   },
+  productName: {
+    fontFamily: "Poppins",
+  },
   loader: {
     marginTop: "350px",
     [theme.breakpoints.down("sm")]: {

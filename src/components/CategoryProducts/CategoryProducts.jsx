@@ -43,7 +43,7 @@ const CategoryProducts = () => {
                     src={`${product.assets[0].url}`}
                   />
                 </Paper>
-                <div>{product.name}</div>
+                <div className={classes.productName}>{product.name}</div>
               </Link>
             </Grid>
           ))}

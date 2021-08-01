@@ -1,5 +1,4 @@
 import React from "react";
-import { CircularProgress } from "@material-ui/core";
 
 import useStyles from "./styles";
 
@@ -7,12 +6,17 @@ const CartProduct = ({ cart }) => {
   const classes = useStyles();
   console.log(cart.line_items);
 
-  if (!cart.line_items) return <CircularProgress className={classes.loader} />;
+  if (!cart.line_items) return null;
 
   return (
     <div>
       {cart.line_items.map((e) => {
-        console.log(e);
+        return (
+          <div className={classes.lineItems}>
+            <img width="200px" src={e.media.source} />
+            <p>{e.product_name}</p>
+          </div>
+        );
       })}
     </div>
   );

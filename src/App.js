@@ -29,12 +29,11 @@ const App = () => {
   const fetchCart = async () => {
     await commerce.cart.retrieve().then((c) => {
       setCart(c);
-      console.log(c);
     });
   };
 
   const onAddToCart = async (product, quantity) => {
-    await commerce.cart.add(product, quantity).then(() => {
+    await commerce.cart.add(product, quantity).then((c) => {
       fetchCart();
     });
   };
