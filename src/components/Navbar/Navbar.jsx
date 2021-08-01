@@ -15,6 +15,7 @@ import useStyles from "./styles";
 
 const Navbar = ({ categories, cart }) => {
   const classes = useStyles();
+
   return (
     <div>
       <AppBar position="fixed" className={classes.appBar} color="primary">
@@ -28,11 +29,13 @@ const Navbar = ({ categories, cart }) => {
             <Dropdown categories={categories} />
           </Typography>
           <div className={classes.cart}>
-            <IconButton aria-label="cart">
-              <Badge badgeContent={cart.total_items} color="secondary">
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
+            <Link to="/cart">
+              <IconButton aria-label="cart">
+                <Badge badgeContent={cart.total_items} color="secondary">
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </Link>
           </div>
         </Toolbar>
       </AppBar>

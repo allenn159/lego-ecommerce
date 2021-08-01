@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { commerce } from "./lib/commerce";
-import { Navbar, Frontpage, CategoryProducts, ProductPage } from "./components";
+import {
+  Navbar,
+  Frontpage,
+  CategoryProducts,
+  ProductPage,
+  Cart,
+} from "./components";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@material-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -28,8 +34,8 @@ const App = () => {
   };
 
   const onAddToCart = async (product, quantity) => {
-    await commerce.cart.add(product, quantity).then((c) => {
-      setCart(c);
+    await commerce.cart.add(product, quantity).then(() => {
+      fetchCart();
     });
   };
 
@@ -38,10 +44,6 @@ const App = () => {
     fetchCategories();
     fetchCart();
   }, []);
-
-  useEffect(() => {
-    fetchCart();
-  }, [cart]);
 
   return (
     <Router>
@@ -56,6 +58,9 @@ const App = () => {
           </Route>
           <Route exact path="/product/:id">
             <ProductPage onAddToCart={onAddToCart} />
+          </Route>
+          <Route exact path="/cart">
+            <Cart cart={cart} />
           </Route>
         </Switch>
       </ThemeProvider>
