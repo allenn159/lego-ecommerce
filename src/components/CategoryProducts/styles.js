@@ -21,6 +21,7 @@ export default makeStyles((theme) => ({
   },
   productName: {
     fontFamily: "Poppins",
+    textDecoration: "none",
   },
   loader: {
     marginTop: "350px",
@@ -56,5 +57,9 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       marginLeft: 0,
     },
+  },
+  select: {
+    textAlign: "center",
+    width: "75px",
   },
 }));

@@ -1,10 +1,10 @@
 import React from "react";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper, Button } from "@material-ui/core";
 import CartProduct from "./CartProduct";
 
 import useStyles from "./styles";
 
-const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
+const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
   if (cartItems.length === 0) {
@@ -24,6 +24,24 @@ const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
               />
             ))}
           </Paper>
+          <Button
+            style={{
+              backgroundColor: "#ffc107",
+              position: "absolute",
+              right: "120px",
+            }}
+            variant="contained"
+            onClick={() => onEmptyCart()}
+          >
+            Empty Cart
+          </Button>
+          <Button
+            style={{ position: "absolute", right: "0" }}
+            variant="contained"
+            color="primary"
+          >
+            Checkout
+          </Button>
         </Grid>
       </Grid>
     </div>

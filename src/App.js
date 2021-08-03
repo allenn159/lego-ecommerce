@@ -52,6 +52,12 @@ const App = () => {
     });
   };
 
+  const onEmptyCart = async () => {
+    await commerce.cart.empty().then((c) => {
+      fetchCart();
+    });
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCategories();
@@ -81,6 +87,7 @@ const App = () => {
               onRemoveFromCart={onRemoveFromCart}
               onUpdateCart={onUpdateCart}
               cartItems={cartItems}
+              onEmptyCart={onEmptyCart}
             />
           </Route>
         </Switch>

@@ -32,7 +32,7 @@ const ProductDescription = ({ product, onAddToCart }) => {
           Add to cart
         </Button>
         <Select
-          style={{ textAlign: "center", width: "75px" }}
+          className={classes.select}
           value={quantity}
           onChange={handleChange}
         >

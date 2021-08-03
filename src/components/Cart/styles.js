@@ -2,11 +2,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   container: {
+    position: "relative",
     marginTop: "95px",
     display: "flex",
     justifyContent: "center",
     margin: "0 25px",
   },
+  button: {},
   paper: {
     display: "flex",
     justifyContent: "center",
