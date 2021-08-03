@@ -19,4 +19,12 @@ export default makeStyles((theme) => ({
     fontFamily: "Poppins",
   },
   textField: {},
+  emptyCart: {
+    marginTop: "300px",
+    display: "flex",
+    justifyContent: "center",
+    margin: "0 25px",
+    fontFamily: "Poppins",
+    fontSize: "40px",
+  },
 }));

@@ -4,8 +4,12 @@ import CartProduct from "./CartProduct";
 
 import useStyles from "./styles";
 
-const Cart = ({ cartItems, onUpdateCart }) => {
+const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
   const classes = useStyles();
+
+  if (cartItems.length === 0) {
+    return <div className={classes.emptyCart}>Your Cart is Empty!</div>;
+  }
   return (
     <div className={classes.container}>
       <Grid container spacing={3}>
@@ -16,6 +20,7 @@ const Cart = ({ cartItems, onUpdateCart }) => {
                 className={classes.paper}
                 item={item}
                 onUpdateCart={onUpdateCart}
+                onRemoveFromCart={onRemoveFromCart}
               />
             ))}
           </Paper>

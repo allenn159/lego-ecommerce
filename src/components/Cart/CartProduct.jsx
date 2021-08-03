@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { commerce } from "../../lib/commerce";
-import { TextField } from "@material-ui/core";
+import { TextField, IconButton } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
 
 import useStyles from "./styles";
 
-const CartProduct = ({ item, onUpdateCart }) => {
+const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(item.quantity);
+  console.log(item);
 
   const onHandleChange = (event) => {
     setQuantity(event.target.value);
@@ -23,13 +25,14 @@ const CartProduct = ({ item, onUpdateCart }) => {
         <p style={{ marginLeft: "100px", width: "950px" }}>
           {item.product_name}
         </p>
+
         <TextField
           style={{
             marginRight: "30px",
             width: "125px",
           }}
           size="medium"
-          label="Quantity"
+          label={`${item.price.formatted} each`}
           type="number"
           variant="outlined"
           value={quantity}
@@ -42,6 +45,12 @@ const CartProduct = ({ item, onUpdateCart }) => {
         >
           Total: ${item.price.formatted * item.quantity}
         </p>
+        <IconButton aria-label="delete">
+          <CloseIcon
+            onClick={() => onRemoveFromCart(item.id)}
+            style={{ color: "#ff1744" }}
+          />
+        </IconButton>
       </div>
     </div>
   );

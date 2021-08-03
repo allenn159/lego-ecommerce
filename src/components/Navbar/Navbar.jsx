@@ -7,8 +7,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
-import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 import logo from "../../assets/lego.jpeg";
 import useStyles from "./styles";

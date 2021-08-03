@@ -46,6 +46,12 @@ const App = () => {
     });
   };
 
+  const onRemoveFromCart = async (product) => {
+    await commerce.cart.remove(product).then((c) => {
+      fetchCart();
+    });
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchCategories();
@@ -71,7 +77,11 @@ const App = () => {
             <ProductPage onAddToCart={onAddToCart} />
           </Route>
           <Route exact path="/cart">
-            <Cart onUpdateCart={onUpdateCart} cartItems={cartItems} />
+            <Cart
+              onRemoveFromCart={onRemoveFromCart}
+              onUpdateCart={onUpdateCart}
+              cartItems={cartItems}
+            />
           </Route>
         </Switch>
       </ThemeProvider>
