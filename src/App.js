@@ -22,9 +22,7 @@ const App = () => {
   };
 
   const fetchCart = async () => {
-    await commerce.cart.retrieve().then((c) => {
-      setCart(c);
-    });
+    setCart(await commerce.cart.retrieve());
   };
 
   const onAddToCart = async (productId, quantity) => {
@@ -33,7 +31,7 @@ const App = () => {
   };
 
   const onUpdateCart = async (productId, quantity) => {
-    const { cart } = await commerce.cart.update(productId, quantity);
+    const { cart } = await commerce.cart.update(productId, { quantity });
     setCart(cart);
   };
 
@@ -76,7 +74,7 @@ const App = () => {
             <Cart
               onRemoveFromCart={onRemoveFromCart}
               onUpdateCart={onUpdateCart}
-              cartItems={cart.line_items}
+              cart={cart}
               onEmptyCart={onEmptyCart}
             />
           </Route>

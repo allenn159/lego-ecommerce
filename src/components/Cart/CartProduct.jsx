@@ -13,9 +13,11 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
     setQuantity(event.target.value);
   };
 
-  useEffect(() => {
-    onUpdateCart(item.id, { quantity: quantity });
-  }, [quantity]);
+  console.log(item.quantity);
+
+  // useEffect(() => {
+  //   onUpdateCart(item.id, quantity);
+  // }, []);
 
   return (
     <div>

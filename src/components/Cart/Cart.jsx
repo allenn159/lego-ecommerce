@@ -5,49 +5,59 @@ import { Link } from "react-router-dom";
 
 import useStyles from "./styles";
 
-const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
+const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
-  if (cartItems.length === 0) {
+  const EmptyCart = () => {
     return <div className={classes.emptyCart}>Your Cart is Empty!</div>;
-  }
-  return (
-    <div className={classes.container}>
-      <Grid container spacing={3}>
-        <Grid item lg={12}>
-          <Paper>
-            {cartItems.map((item) => (
-              <CartProduct
-                className={classes.paper}
-                item={item}
-                onUpdateCart={onUpdateCart}
-                onRemoveFromCart={onRemoveFromCart}
-              />
-            ))}
-          </Paper>
-          <Button
-            style={{
-              backgroundColor: "#ffc107",
-              position: "absolute",
-              right: "120px",
-            }}
-            variant="contained"
-            onClick={() => onEmptyCart()}
-          >
-            Empty Cart
-          </Button>
-          <Link to={"/checkout"}>
+  };
+
+  if (!cart.line_items) return "Loading...";
+
+  const FilledCart = () => {
+    return (
+      <div className={classes.container}>
+        <Grid container spacing={3}>
+          <Grid item lg={12}>
+            <Paper>
+              {cart.line_items.map((item) => (
+                <CartProduct
+                  className={classes.paper}
+                  item={item}
+                  onUpdateCart={onUpdateCart}
+                  onRemoveFromCart={onRemoveFromCart}
+                  key={item.id}
+                />
+              ))}
+            </Paper>
             <Button
-              style={{ position: "absolute", right: "0" }}
+              style={{
+                backgroundColor: "#ffc107",
+                position: "absolute",
+                right: "120px",
+              }}
               variant="contained"
-              color="primary"
+              onClick={onEmptyCart}
             >
-              Checkout
+              Empty Cart
             </Button>
-          </Link>
+            <Link to={"/checkout"}>
+              <Button
+                style={{ position: "absolute", right: "0" }}
+                variant="contained"
+                color="primary"
+              >
+                Checkout
+              </Button>
+            </Link>
+          </Grid>
         </Grid>
-      </Grid>
-    </div>
+      </div>
+    );
+  };
+
+  return (
+    <div>{cart.line_items.length <= 0 ? <EmptyCart /> : <FilledCart />}</div>
   );
 };
 
