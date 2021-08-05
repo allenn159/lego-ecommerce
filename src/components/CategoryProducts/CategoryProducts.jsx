@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { commerce } from "../../lib/commerce";
-import { CircularProgress, Grid, Paper } from "@material-ui/core";
+import { CircularProgress, Grid, Paper, Fade } from "@material-ui/core";
 
 import useStyles from "./styles";
 

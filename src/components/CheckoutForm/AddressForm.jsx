@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   InputLabel,
   Select,
@@ -9,11 +9,11 @@ import {
 } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
 import FormInput from "./FormInput";
-import {commerce} from '../../lib/commerce'
+import { commerce } from "../../lib/commerce";
 
 const AddressForm = () => {
-  const [shippingState, setShippingState] = useState('')
-  const [shippingMethods, setShippingMethods] = useState('')
+  const [shippingState, setShippingState] = useState("");
+  const [shippingMethods, setShippingMethods] = useState("");
   const methods = useForm();
 
   return (
@@ -32,15 +32,15 @@ const AddressForm = () => {
             <FormInput required name={"zip"} label={"Postal Code"} />
             <Grid item xs={12} sm={6}>
               <InputLabel>States</InputLabel>
-              <Select value={} fullWidth onChange={}>
-                <MenuItem key={} value={}>
-                    Select Me
+              <Select value={""} fullWidth onChange={""}>
+                <MenuItem key={""} value={""}>
+                  Select Me
                 </MenuItem>
               </Select>
               <InputLabel>Shipping Options</InputLabel>
-              <Select value={} fullWidth onChange={}>
-                <MenuItem key={} value={}>
-                    Select Me
+              <Select value={""} fullWidth onChange={""}>
+                <MenuItem key={""} value={""}>
+                  Select Me
                 </MenuItem>
               </Select>
             </Grid>

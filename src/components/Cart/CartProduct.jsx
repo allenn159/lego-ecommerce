@@ -44,11 +44,11 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
         >
           Total: ${item.price.formatted * item.quantity}
         </p>
-        <IconButton aria-label="delete">
-          <CloseIcon
-            onClick={() => onRemoveFromCart(item.id)}
-            style={{ color: "#ff1744" }}
-          />
+        <IconButton
+          onClick={() => onRemoveFromCart(item.id)}
+          aria-label="delete"
+        >
+          <CloseIcon style={{ color: "#ff1744" }} />
         </IconButton>
       </div>
     </div>

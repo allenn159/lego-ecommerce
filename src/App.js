@@ -13,15 +13,8 @@ import { ThemeProvider } from "@material-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
-  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [cart, setCart] = useState({});
-  const [cartItems, setCartItems] = useState([]);
-
-  const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-    setProducts(data);
-  };
 
   const fetchCategories = async () => {
     const { data } = await commerce.categories.list();
@@ -31,39 +24,35 @@ const App = () => {
   const fetchCart = async () => {
     await commerce.cart.retrieve().then((c) => {
       setCart(c);
-      setCartItems(c.line_items);
     });
   };
 
-  const onAddToCart = async (product, quantity) => {
-    await commerce.cart.add(product, quantity).then(() => {
-      fetchCart();
-    });
+  const onAddToCart = async (productId, quantity) => {
+    const { cart } = await commerce.cart.add(productId, quantity);
+    setCart(cart);
   };
 
-  const onUpdateCart = async (product, quantity) => {
-    await commerce.cart.update(product, quantity).then((c) => {
-      fetchCart();
-    });
+  const onUpdateCart = async (productId, quantity) => {
+    const { cart } = await commerce.cart.update(productId, quantity);
+    setCart(cart);
   };
 
-  const onRemoveFromCart = async (product) => {
-    await commerce.cart.remove(product).then((c) => {
-      fetchCart();
-    });
+  const onRemoveFromCart = async (productId) => {
+    const { cart } = await commerce.cart.remove(productId);
+    setCart(cart);
   };
 
   const onEmptyCart = async () => {
-    await commerce.cart.empty().then((c) => {
-      fetchCart();
-    });
+    const { cart } = await commerce.cart.empty();
+    setCart(cart);
   };
 
   useEffect(() => {
-    fetchProducts();
     fetchCategories();
     fetchCart();
   }, []);
+
+  console.log("I rendered!");
 
   return (
     <Router>
@@ -87,7 +76,7 @@ const App = () => {
             <Cart
               onRemoveFromCart={onRemoveFromCart}
               onUpdateCart={onUpdateCart}
-              cartItems={cartItems}
+              cartItems={cart.line_items}
               onEmptyCart={onEmptyCart}
             />
           </Route>
