@@ -7,21 +7,29 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  link: {
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
   paper: {
     display: "flex",
     justifyContent: "center",
   },
   image: {
     height: "400px",
-    width: "400px",
+    maxWidth: "100vw",
     [theme.breakpoints.down("sm")]: {
       height: "auto",
       width: "90vw",
     },
   },
-  productName: {
+  productLabel: {
     fontFamily: "Poppins",
-    textDecoration: "none",
+    margin: "20px 0",
+    textAlign: "center",
+    fontSize: "20px",
   },
   loader: {
     marginTop: "350px",

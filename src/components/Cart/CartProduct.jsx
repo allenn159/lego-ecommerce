@@ -8,7 +8,6 @@ import useStyles from "./styles";
 const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(item.quantity);
-  console.log(item);
 
   const onHandleChange = (event) => {
     setQuantity(event.target.value);

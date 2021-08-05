@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { commerce } from "../../lib/commerce";
 import {
   Button,
-  InputLabel,
   MenuItem,
   Select,
   FormControl,
+  Typography,
 } from "@material-ui/core";
 
 import useStyles from "./styles";
@@ -21,6 +20,9 @@ const ProductDescription = ({ product, onAddToCart }) => {
 
   return (
     <div>
+      <Typography className={classes.productText} variant="h4">
+        {product.name}
+      </Typography>
       <p className={classes.productText}>{description}</p>
       <FormControl className={classes.form}>
         <Button

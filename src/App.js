@@ -6,6 +6,7 @@ import {
   CategoryProducts,
   ProductPage,
   Cart,
+  Checkout,
 } from "./components";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@material-ui/core";
@@ -89,6 +90,9 @@ const App = () => {
               cartItems={cartItems}
               onEmptyCart={onEmptyCart}
             />
+          </Route>
+          <Route>
+            <Checkout />
           </Route>
         </Switch>
       </ThemeProvider>

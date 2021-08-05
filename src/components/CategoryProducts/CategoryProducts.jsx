@@ -36,14 +36,14 @@ const CategoryProducts = () => {
         <Grid container spacing={2}>
           {products.map((product) => (
             <Grid key={product.id} item lg={4} md={6} sm={12} xs={12}>
-              <Link to={`/product/${product.id}`}>
+              <Link className={classes.link} to={`/product/${product.id}`}>
                 <Paper className={classes.paper} elevation={3} key={product.id}>
                   <img
                     className={classes.image}
                     src={`${product.assets[0].url}`}
                   />
                 </Paper>
-                <div className={classes.productName}>{product.name}</div>
+                <div className={classes.productLabel}>{product.name}</div>
               </Link>
             </Grid>
           ))}
