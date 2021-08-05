@@ -51,6 +51,7 @@ const App = () => {
   }, []);
 
   console.log("I rendered!");
+  console.log(cart);
 
   return (
     <Router>

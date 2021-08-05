@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { commerce } from "../../lib/commerce";
 import { TextField, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
@@ -9,15 +9,19 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(item.quantity);
 
+  const initialRender = useRef(true);
+
   const onHandleChange = (event) => {
     setQuantity(event.target.value);
   };
 
-  console.log(item.quantity);
-
-  // useEffect(() => {
-  //   onUpdateCart(item.id, quantity);
-  // }, []);
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      onUpdateCart(item.id, quantity);
+    }
+  }, [quantity]);
 
   return (
     <div>
