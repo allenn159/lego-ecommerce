@@ -51,7 +51,6 @@ const App = () => {
   }, []);
 
   console.log("I rendered!");
-  console.log(cart);
 
   return (
     <Router>
@@ -79,9 +78,7 @@ const App = () => {
               onEmptyCart={onEmptyCart}
             />
           </Route>
-          <Route>
-            <Checkout />
-          </Route>
+          <Route>{cart.id && <Checkout cart={cart.id} />}</Route>
         </Switch>
       </ThemeProvider>
     </Router>
