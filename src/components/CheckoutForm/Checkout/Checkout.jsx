@@ -37,7 +37,7 @@ const Checkout = ({ cart }) => {
 
   const Form = () =>
     activeStep === 0 ? (
-      <AddressForm checkoutToken={checkoutToken} />
+      checkoutToken && <AddressForm checkoutToken={checkoutToken} />
     ) : (
       <PaymentForm />
     );
