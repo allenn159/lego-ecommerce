@@ -49,6 +49,13 @@ const AddressForm = ({ checkoutToken }) => {
             <FormInput required name={"email"} label={"Email"} />
             <FormInput required name={"City"} label={"City"} />
             <FormInput required name={"zip"} label={"Postal Code"} />
+            <FormInput
+              InputProps={{
+                readOnly: true,
+              }}
+              defaultValue="United States"
+              label={"Country"}
+            />
             <Grid item xs={12} sm={6}>
               <InputLabel>State</InputLabel>
               <Select
@@ -74,6 +81,13 @@ const AddressForm = ({ checkoutToken }) => {
             <FormInput required name={"email"} label={"Email"} />
             <FormInput required name={"City"} label={"City"} />
             <FormInput required name={"zip"} label={"Postal Code"} />
+            <FormInput
+              InputProps={{
+                readOnly: true,
+              }}
+              defaultValue="United States"
+              label={"Country"}
+            />
             <Grid item xs={12} sm={6}>
               <InputLabel>State</InputLabel>
               <Select
@@ -88,10 +102,8 @@ const AddressForm = ({ checkoutToken }) => {
                 ))} */}
               </Select>
               <InputLabel>Shipping Options</InputLabel>
-              <Select value={""} fullWidth onChange={""}>
-                <MenuItem key={""} value={""}>
-                  Select Me
-                </MenuItem>
+              <Select fullWidth>
+                <MenuItem>Select Me</MenuItem>
               </Select>
             </Grid>
           </Grid>
