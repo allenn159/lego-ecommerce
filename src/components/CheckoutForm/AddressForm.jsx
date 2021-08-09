@@ -13,28 +13,35 @@ import { commerce } from "../../lib/commerce";
 
 const AddressForm = ({ checkoutToken }) => {
   const [shippingStates, setShippingStates] = useState([]);
-  const [shippingState, setShippingState] = useState("");
+  const [billState, setBillState] = useState("");
+  const [shipState, setShipState] = useState("");
   const [shippingMethods, setShippingMethods] = useState([]);
   const [shippingMethod, setShippingMethod] = useState("");
+
   const methods = useForm();
 
-  const fetchStates = async () => {
-    const states = await commerce.services.localeListSubdivisions("US");
-    setShippingStates(Object.entries(states.subdivisions));
+  const fetchStates = async (checkoutTokenId) => {
+    const states = await commerce.services.localeListShippingSubdivisions(
+      checkoutTokenId,
+      "US"
+    );
+    setShippingStates(Object.values(states.subdivisions));
   };
 
-  // const fetchShipping = async () => {
-  //   const options = await commerce.checkout.getShippingOptions(
-  //     checkoutToken.id,
-  //     {
-  //       country: "US",
-  //     }
-  //   );
-  //   console.log(options);
-  // };
+  const fetchShipping = async (checkoutTokenId) => {
+    const options = await commerce.checkout.getShippingOptions(
+      checkoutTokenId,
+      {
+        country: "US",
+        region: "AL",
+      }
+    );
+    setShippingMethods(options);
+  };
 
   useEffect(() => {
-    fetchStates();
+    fetchStates(checkoutToken.id);
+    fetchShipping(checkoutToken.id);
   }, []);
 
   return (
@@ -59,17 +66,15 @@ const AddressForm = ({ checkoutToken }) => {
             <Grid item xs={12} sm={6}>
               <InputLabel>State</InputLabel>
               <Select
-                value={shippingState}
+                value={billState}
                 fullWidth
-                onChange={(e) => setShippingState(e.target.value)}
+                onChange={(e) => setBillState(e.target.value)}
               >
-                {shippingStates
-                  .map(([code, name]) => ({ id: code, label: name }))
-                  .map((item) => (
-                    <MenuItem key={item.label} value={item.label}>
-                      {item.label}
-                    </MenuItem>
-                  ))}
+                {shippingStates.map((state, idx) => (
+                  <MenuItem key={idx} value={state}>
+                    {state}
+                  </MenuItem>
+                ))}
               </Select>
             </Grid>
           </Grid>
@@ -91,19 +96,27 @@ const AddressForm = ({ checkoutToken }) => {
             <Grid item xs={12} sm={6}>
               <InputLabel>State</InputLabel>
               <Select
-                value={shippingState}
+                value={shipState}
                 fullWidth
-                onChange={(e) => setShippingState(e.target.value)}
+                onChange={(e) => setShipState(e.target.value)}
               >
-                {/* {shippingStates.map((state) => (
-                  <MenuItem key={state} value={state}>
+                {shippingStates.map((state, idx) => (
+                  <MenuItem key={idx} value={state}>
                     {state}
                   </MenuItem>
-                ))} */}
+                ))}
               </Select>
               <InputLabel>Shipping Options</InputLabel>
-              <Select fullWidth>
-                <MenuItem>Select Me</MenuItem>
+              <Select
+                value={shippingMethod}
+                fullWidth
+                onChange={(e) => setShippingMethod(e.target.value)}
+              >
+                {shippingMethods.map((method) => (
+                  <MenuItem key={method.id} value={method}>
+                    {`${method.description} - Free`}
+                  </MenuItem>
+                ))}
               </Select>
             </Grid>
           </Grid>
