@@ -10,6 +10,7 @@ import {
 import { useForm, FormProvider } from "react-hook-form";
 import FormInput from "./FormInput";
 import { commerce } from "../../lib/commerce";
+import { Watch } from "@material-ui/icons";
 
 const AddressForm = ({ checkoutToken }) => {
   const [shippingStates, setShippingStates] = useState([]);
@@ -50,11 +51,16 @@ const AddressForm = ({ checkoutToken }) => {
         <form>
           <Typography variant="h6">Billing Address</Typography>
           <Grid container spacing={3}>
-            <FormInput required name={"firstName"} label={"First Name"} />
+            <FormInput
+              error={false}
+              required
+              name={"firstName"}
+              label={"First Name"}
+            />
             <FormInput required name={"lastName"} label={"Last Name"} />
-            <FormInput required name={"address1"} label={"Address"} />
+            <FormInput required name={"address"} label={"Billing Address"} />
             <FormInput required name={"email"} label={"Email"} />
-            <FormInput required name={"City"} label={"City"} />
+            <FormInput required name={"city"} label={"City"} />
             <FormInput required name={"zip"} label={"Postal Code"} />
             <FormInput
               InputProps={{
@@ -79,12 +85,13 @@ const AddressForm = ({ checkoutToken }) => {
             </Grid>
           </Grid>
           <Typography variant="h6">Shipping Address</Typography>
+
           <Grid container spacing={3}>
             <FormInput required name={"firstName"} label={"First Name"} />
             <FormInput required name={"lastName"} label={"Last Name"} />
-            <FormInput required name={"address1"} label={"Address"} />
+            <FormInput required name={"address"} label={"Shipping Address"} />
             <FormInput required name={"email"} label={"Email"} />
-            <FormInput required name={"City"} label={"City"} />
+            <FormInput required name={"city"} label={"City"} />
             <FormInput required name={"zip"} label={"Postal Code"} />
             <FormInput
               InputProps={{
