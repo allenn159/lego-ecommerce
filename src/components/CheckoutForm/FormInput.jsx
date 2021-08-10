@@ -9,6 +9,7 @@ const FormInput = ({
   defaultValue,
   InputProps,
   error,
+  onChange,
 }) => {
   const { control } = useFormContext;
   return (
@@ -24,6 +25,7 @@ const FormInput = ({
             defaultValue={defaultValue}
             InputProps={InputProps}
             error={error}
+            onChange={onChange}
           ></TextField>
         )}
       />

@@ -18,8 +18,17 @@ const AddressForm = ({ checkoutToken }) => {
   const [shipState, setShipState] = useState("");
   const [shippingMethods, setShippingMethods] = useState([]);
   const [shippingMethod, setShippingMethod] = useState("");
+  const [error, setError] = useState(false);
 
   const methods = useForm();
+
+  const onHandleField = (e) => {
+    if (e.target.value === "") {
+      setError(true);
+    } else {
+      setError(false);
+    }
+  };
 
   const fetchStates = async (checkoutTokenId) => {
     const states = await commerce.services.localeListShippingSubdivisions(
@@ -52,12 +61,17 @@ const AddressForm = ({ checkoutToken }) => {
           <Typography variant="h6">Billing Address</Typography>
           <Grid container spacing={3}>
             <FormInput
-              error={false}
+              error={error}
               required
               name={"firstName"}
               label={"First Name"}
             />
-            <FormInput required name={"lastName"} label={"Last Name"} />
+            <FormInput
+              error={error}
+              required
+              name={"lastName"}
+              label={"Last Name"}
+            />
             <FormInput required name={"address"} label={"Billing Address"} />
             <FormInput required name={"email"} label={"Email"} />
             <FormInput required name={"city"} label={"City"} />
