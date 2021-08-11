@@ -7,34 +7,18 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core";
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import FormInput from "./FormInput";
 import { commerce } from "../../lib/commerce";
-import { Watch } from "@material-ui/icons";
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
   const [shippingStates, setShippingStates] = useState([]);
   const [billState, setBillState] = useState("");
   const [shipState, setShipState] = useState("");
   const [shippingMethods, setShippingMethods] = useState([]);
   const [shippingMethod, setShippingMethod] = useState("");
-  const [error, setError] = useState({
-    firstName: false,
-    lastName: false,
-  });
 
   const methods = useForm();
-
-  const onHandleField = (e) => {
-    const name = e.target.name;
-    if (!e.target.value) {
-      setError({ ...error, [name]: true });
-    } else {
-      setError({ ...error, [name]: false });
-    }
-  };
-
-  console.log(error.firstName);
 
   const fetchStates = async (checkoutTokenId) => {
     const states = await commerce.services.localeListShippingSubdivisions(
@@ -63,23 +47,15 @@ const AddressForm = ({ checkoutToken }) => {
   return (
     <>
       <FormProvider {...methods}>
-        <form>
+        <form
+          onSubmit={methods.handleSubmit((data) =>
+            setShippingData({ ...data })
+          )}
+        >
           <Typography variant="h6">Billing Address</Typography>
           <Grid container spacing={3}>
-            <FormInput
-              error={error.firstName}
-              required
-              name={"firstName"}
-              label={"First Name"}
-              onChange={onHandleField}
-            />
-            <FormInput
-              error={error.lastName}
-              required
-              name={"lastName"}
-              label={"Last Name"}
-              onChange={onHandleField}
-            />
+            <FormInput required name={"firstName"} label={"First Name"} />
+            <FormInput required name={"lastName"} label={"Last Name"} />
             <FormInput required name={"address"} label={"Billing Address"} />
             <FormInput required name={"email"} label={"Email"} />
             <FormInput required name={"city"} label={"City"} />
@@ -97,6 +73,7 @@ const AddressForm = ({ checkoutToken }) => {
                 value={billState}
                 fullWidth
                 onChange={(e) => setBillState(e.target.value)}
+                required
               >
                 {shippingStates.map((state, idx) => (
                   <MenuItem key={idx} value={state}>
@@ -109,12 +86,16 @@ const AddressForm = ({ checkoutToken }) => {
           <Typography variant="h6">Shipping Address</Typography>
 
           <Grid container spacing={3}>
-            <FormInput required name={"firstName"} label={"First Name"} />
-            <FormInput required name={"lastName"} label={"Last Name"} />
-            <FormInput required name={"address"} label={"Shipping Address"} />
-            <FormInput required name={"email"} label={"Email"} />
-            <FormInput required name={"city"} label={"City"} />
-            <FormInput required name={"zip"} label={"Postal Code"} />
+            <FormInput required name={"shipFirstName"} label={"First Name"} />
+            <FormInput required name={"shipLastName"} label={"Last Name"} />
+            <FormInput
+              required
+              name={"shipAddress"}
+              label={"Shipping Address"}
+            />
+            <FormInput required name={"shipEmail"} label={"Email"} />
+            <FormInput required name={"shipCity"} label={"City"} />
+            <FormInput required name={"shipZip"} label={"Postal Code"} />
             <FormInput
               InputProps={{
                 readOnly: true,
@@ -128,6 +109,7 @@ const AddressForm = ({ checkoutToken }) => {
                 value={shipState}
                 fullWidth
                 onChange={(e) => setShipState(e.target.value)}
+                required
               >
                 {shippingStates.map((state, idx) => (
                   <MenuItem key={idx} value={state}>
@@ -140,6 +122,7 @@ const AddressForm = ({ checkoutToken }) => {
                 value={shippingMethod}
                 fullWidth
                 onChange={(e) => setShippingMethod(e.target.value)}
+                required
               >
                 {shippingMethods.map((method) => (
                   <MenuItem key={method.id} value={method}>
@@ -149,6 +132,9 @@ const AddressForm = ({ checkoutToken }) => {
               </Select>
             </Grid>
           </Grid>
+          <Button type="submit" color="primary">
+            Next
+          </Button>
         </form>
       </FormProvider>
     </>
