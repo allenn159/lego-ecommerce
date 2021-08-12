@@ -48,25 +48,19 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
     <>
       <FormProvider {...methods}>
         <form
-          onSubmit={methods.handleSubmit((data) =>
-            setShippingData({ ...data })
-          )}
+          onSubmit={methods.handleSubmit((data) => {
+            console.log({ data, billState, shipState, shippingMethod });
+          })}
         >
           <Typography variant="h6">Billing Address</Typography>
           <Grid container spacing={3}>
-            <FormInput required name={"firstName"} label={"First Name"} />
-            <FormInput required name={"lastName"} label={"Last Name"} />
-            <FormInput required name={"address"} label={"Billing Address"} />
-            <FormInput required name={"email"} label={"Email"} />
-            <FormInput required name={"city"} label={"City"} />
-            <FormInput required name={"zip"} label={"Postal Code"} />
-            <FormInput
-              InputProps={{
-                readOnly: true,
-              }}
-              defaultValue="United States"
-              label={"Country"}
-            />
+            <FormInput name={"firstName"} label={"First Name"} />
+            <FormInput name={"lastName"} label={"Last Name"} />
+            <FormInput name={"address"} label={"Billing Address"} />
+            <FormInput name={"email"} label={"Email"} />
+            <FormInput name={"city"} label={"City"} />
+            <FormInput name={"zip"} label={"Postal Code"} />
+            <FormInput name={"country"} label={"Country"} />
             <Grid item xs={12} sm={6}>
               <InputLabel>State</InputLabel>
               <Select
@@ -86,23 +80,17 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
           <Typography variant="h6">Shipping Address</Typography>
 
           <Grid container spacing={3}>
-            <FormInput required name={"shipFirstName"} label={"First Name"} />
-            <FormInput required name={"shipLastName"} label={"Last Name"} />
+            <FormInput name={"shipFirstName"} label={"First Name"} />
+            <FormInput name={"shipLastName"} label={"Last Name"} />
             <FormInput
               required
               name={"shipAddress"}
               label={"Shipping Address"}
             />
-            <FormInput required name={"shipEmail"} label={"Email"} />
-            <FormInput required name={"shipCity"} label={"City"} />
-            <FormInput required name={"shipZip"} label={"Postal Code"} />
-            <FormInput
-              InputProps={{
-                readOnly: true,
-              }}
-              defaultValue="United States"
-              label={"Country"}
-            />
+            <FormInput name={"shipEmail"} label={"Email"} />
+            <FormInput name={"shipCity"} label={"City"} />
+            <FormInput name={"shipZip"} label={"Postal Code"} />
+            <FormInput name={"shipCountry"} label={"Country"} />
             <Grid item xs={12} sm={6}>
               <InputLabel>State</InputLabel>
               <Select

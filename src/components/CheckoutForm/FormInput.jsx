@@ -2,20 +2,21 @@ import React from "react";
 import { TextField, Grid } from "@material-ui/core";
 import { useFormContext, Controller } from "react-hook-form";
 
-const FormInput = ({ name, label, required, defaultValue, InputProps }) => {
+const FormInput = ({ name, label, InputProps }) => {
   const { control } = useFormContext;
   return (
     <Grid item xs={12} sm={6}>
       <Controller
-        render={() => (
+        defaultValue=""
+        control={control}
+        name={name}
+        render={({ field: { onChange, value } }) => (
           <TextField
-            control={control}
             fullWidth
-            name={name}
             label={label}
-            required={required}
-            defaultValue={defaultValue}
-            InputProps={InputProps}
+            required
+            value={value}
+            onChange={onChange}
           ></TextField>
         )}
       />
