@@ -6,8 +6,9 @@ import {
   Button,
   Grid,
   Typography,
+  TextField,
 } from "@material-ui/core";
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import FormInput from "./FormInput";
 import { commerce } from "../../lib/commerce";
 
@@ -49,7 +50,8 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit((data) => {
-            console.log({ data, billState, shipState, shippingMethod });
+            nextStep();
+            setShippingData({ data, billState, shipState, shippingMethod });
           })}
         >
           <Typography variant="h6">Billing Address</Typography>
@@ -118,6 +120,30 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
                   </MenuItem>
                 ))}
               </Select>
+              <TextField
+                defaultValue="0000 0000 0000 0000"
+                InputProps={{
+                  readOnly: true,
+                }}
+                name={"cardNumber"}
+                label={"Credit Card"}
+              />
+              <TextField
+                defaultValue="01/21"
+                InputProps={{
+                  readOnly: true,
+                }}
+                name={"expiry"}
+                label={"Expiry"}
+              />
+              <TextField
+                defaultValue="***"
+                InputProps={{
+                  readOnly: true,
+                }}
+                name={"cvv"}
+                label={"CVV"}
+              />
             </Grid>
           </Grid>
           <Button type="submit" color="primary">

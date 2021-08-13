@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {
-  Paper,
-  Stepper,
-  Step,
-  StepLabel,
-  Typography,
-  CircularProgress,
-  Divider,
-  Button,
-} from "@material-ui/core";
+import { Paper, Stepper, Step, StepLabel, Typography } from "@material-ui/core";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
-import { Redirect } from "react-router-dom";
 
 import useStyles from "./styles";
 import { commerce } from "../../../lib/commerce";
 
-const steps = ["Shipping Address", "Payment Details"];
+const steps = ["Address & Payment", "Confirmation"];
 
 const Checkout = ({ cart }) => {
   const classes = useStyles();
@@ -43,8 +33,6 @@ const Checkout = ({ cart }) => {
     nextStep();
   };
 
-  console.log(shippingData);
-
   const Confirmation = () => <div>Confirmation</div>;
 
   const Form = () =>
@@ -60,10 +48,12 @@ const Checkout = ({ cart }) => {
       <PaymentForm checkoutToken={checkoutToken} shippingData={shippingData} />
     );
 
+  console.log(shippingData);
+
   return (
     <>
-      <div className={classes.toolbar} />
-      <main className={classes.layout}>
+      <div />
+      <main className={classes.container}>
         <Paper className={classes.paper}>
           <Typography variant="h4" align="center">
             Checkout
