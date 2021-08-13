@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { commerce } from "../../lib/commerce";
 import { TextField, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 
@@ -21,12 +20,12 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
     } else {
       onUpdateCart(item.id, quantity);
     }
-  }, [quantity]);
+  }, [onUpdateCart, item.id, quantity]);
 
   return (
     <div>
       <div className={classes.lineItems}>
-        <img width="200px" src={item.media.source} />
+        <img width="200px" src={item.media.source} alt={item.name} />
         <p style={{ marginLeft: "100px", width: "950px" }}>
           {item.product_name}
         </p>

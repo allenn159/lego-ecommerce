@@ -18,7 +18,7 @@ const ImageCarousel = ({ product }) => {
         showArrows={false}
       >
         {assets.map((image) => (
-          <img src={image.url} key={image.id} />
+          <img src={image.url} key={image.id} alt={image.name} />
         ))}
       </Carousel>
     </div>

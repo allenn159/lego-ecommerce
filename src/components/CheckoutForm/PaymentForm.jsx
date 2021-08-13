@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
 
 const PaymentForm = ({ shippingData }) => {
@@ -8,9 +8,7 @@ const PaymentForm = ({ shippingData }) => {
     <>
       <FormProvider {...methods}>
         <form>
-          <Grid container spacing={3}>
-            
-          </Grid>
+          <Grid container spacing={3}></Grid>
         </form>
       </FormProvider>
     </>

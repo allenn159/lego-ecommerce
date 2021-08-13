@@ -7,7 +7,14 @@ export default makeStyles((theme) => ({
   container: {
     marginTop: "95px",
     width: "auto",
-    margin: "0 600px",
+    margin: "0 300px",
+    [theme.breakpoints.down(1500)]: {
+      margin: "95 200px 0 200px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "200px",
+      marginRight: "200px",
+    },
   },
   paper: {
     marginTop: theme.spacing(3),

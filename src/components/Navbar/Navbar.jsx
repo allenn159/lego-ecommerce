@@ -22,7 +22,7 @@ const Navbar = ({ categories, totalItems }) => {
         <Toolbar className={classes.toolbar}>
           <Typography component={"div"}>
             <Link to="/">
-              <img src={logo} className={classes.image} />
+              <img src={logo} className={classes.image} alt="Logo" />
             </Link>
           </Typography>
           <Typography component={"div"} className={classes.button}>

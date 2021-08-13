@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Fade } from "@material-ui/core";
 
 import useStyles from "./styles";
@@ -9,7 +9,7 @@ const Frontpage = () => {
   return (
     <div className={classes.container}>
       <Fade in>
-        <img className={classes.image} src={image} />
+        <img className={classes.image} src={image} alt={"Front Page"} />
       </Fade>
     </div>
   );
