@@ -25,10 +25,18 @@ export default makeStyles((theme) => ({
     right: 0,
     [theme.breakpoints.down(1100)]: {
       position: "revert",
+      justifyContent: "center",
+      marginLeft: "50px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      position: "revert",
+      justifyContent: "center",
+      marginLeft: "10px",
+      flexWrap: "wrap",
     },
   },
   image: {
-    width: "300px",
+    width: "250px",
     marginLeft: "200px",
     marginRight: "100px",
     [theme.breakpoints.down("md")]: {
@@ -39,19 +47,45 @@ export default makeStyles((theme) => ({
       width: "500px",
       margin: 0,
     },
+    [theme.breakpoints.down("xs")]: {
+      width: "250px",
+      margin: 0,
+    },
   },
   productName: {
     width: "250px",
+    fontSize: "18px",
+    [theme.breakpoints.down(1100)]: {
+      width: "100%",
+      fontSize: "35px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      fontSize: "25px",
+    },
   },
   quantityInput: {
-    width: "75px",
+    width: "100px",
     marginRight: "25px",
+
+    [theme.breakpoints.down("xs")]: {
+      width: "125px",
+      marginLeft: "80px",
+    },
   },
   renewButton: { marginRight: "25px" },
-  itemTotal: { width: "100px", marginRight: "40px" },
+  itemTotal: {
+    width: "150px",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: "70px",
+    },
+  },
   removeButton: {
     color: "#ff1744",
-    marginRight: "35px",
+    marginRight: "30px",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: "15px",
+    },
   },
   emptyCart: {
     marginTop: "300px",

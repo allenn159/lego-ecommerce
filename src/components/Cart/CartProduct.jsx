@@ -56,7 +56,7 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
             aria-label="delete"
             className={classes.removeButton}
           >
-            <CloseIcon />
+            <CloseIcon style={{ padding: "0 5" }} />
           </IconButton>
         </div>
       </div>
