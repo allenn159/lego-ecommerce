@@ -17,8 +17,8 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
   const FilledCart = () => {
     return (
       <div className={classes.container}>
-        <Grid container spacing={3}>
-          <Grid item lg={12}>
+        <Grid container>
+          <Grid item lg={12} md={12} sm={12}>
             <Paper>
               {cart.line_items.map((item) => (
                 <CartProduct

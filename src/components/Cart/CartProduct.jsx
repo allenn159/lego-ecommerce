@@ -27,37 +27,38 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
       <div className={classes.lineItems}>
         <img
           className={classes.image}
-          width="200px"
           src={item.media.source}
           alt={item.name}
         />
         <p className={classes.productName}>{item.product_name}</p>
-
-        <TextField
-          className={classes.quantityInput}
-          size="medium"
-          label={`${item.price.formatted} each`}
-          type="number"
-          variant="outlined"
-          value={quantity}
-          onChange={onHandleChange}
-        />
-        <IconButton onClick={onUpdateQuantity}>
-          <AutorenewIcon className={classes.renewButton} />
-        </IconButton>
-        <p className={classes.itemTotal}>
-          Total: ${item.price.formatted * item.quantity}
-        </p>
-        <IconButton
-          onClick={() => onRemoveFromCart(item.id)}
-          aria-label="delete"
-        >
-          <CloseIcon
-            style={{
-              color: "#ff1744",
-            }}
+        <div className={classes.buttonContainer}>
+          <TextField
+            className={classes.quantityInput}
+            size="medium"
+            label={`${item.price.formatted} each`}
+            type="number"
+            variant="outlined"
+            value={quantity}
+            onChange={onHandleChange}
+            inputProps={{ min: 0 }}
           />
-        </IconButton>
+          <IconButton
+            className={classes.renewButton}
+            onClick={onUpdateQuantity}
+          >
+            <AutorenewIcon style={{ fontSize: "30px", color: "#00a152" }} />
+          </IconButton>
+          <p className={classes.itemTotal}>
+            Total: ${item.price.formatted * item.quantity}
+          </p>
+          <IconButton
+            onClick={() => onRemoveFromCart(item.id)}
+            aria-label="delete"
+            className={classes.removeButton}
+          >
+            <CloseIcon />
+          </IconButton>
+        </div>
       </div>
     </div>
   );

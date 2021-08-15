@@ -5,26 +5,54 @@ export default makeStyles((theme) => ({
     position: "relative",
     margin: "95px 25px",
   },
+  paper: {
+    position: "relative",
+  },
   lineItems: {
     display: "flex",
     alignItems: "center",
     marginBottom: "25px",
+    padding: "20px 0",
     fontFamily: "Poppins",
+    [theme.breakpoints.down(1100)]: {
+      display: "block",
+      textAlign: "center",
+    },
+  },
+  buttonContainer: {
+    display: "flex",
+    position: "absolute",
+    right: 0,
+    [theme.breakpoints.down(1100)]: {
+      position: "revert",
+    },
   },
   image: {
+    width: "300px",
     marginLeft: "200px",
     marginRight: "100px",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "25px",
+      marginRight: "75px",
+    },
+    [theme.breakpoints.down(1100)]: {
+      width: "500px",
+      margin: 0,
+    },
   },
-  productName: { width: "200px", marginRight: "600px" },
+  productName: {
+    width: "250px",
+  },
   quantityInput: {
-    width: "100px",
+    width: "75px",
     marginRight: "25px",
   },
-  renewButton: {
-    fontSize: "30px",
-    color: "#00a152",
+  renewButton: { marginRight: "25px" },
+  itemTotal: { width: "100px", marginRight: "40px" },
+  removeButton: {
+    color: "#ff1744",
+    marginRight: "35px",
   },
-  itemTotal: { width: "100px", marginLeft: "25px", marginRight: "150px" },
   emptyCart: {
     marginTop: "300px",
     display: "flex",
