@@ -51,13 +51,17 @@ export default makeStyles((theme) => ({
       width: "250px",
       margin: 0,
     },
+    [theme.breakpoints.down(400)]: {
+      width: "200px",
+      margin: 0,
+    },
   },
   productName: {
     width: "250px",
     fontSize: "18px",
     [theme.breakpoints.down(1100)]: {
       width: "100%",
-      fontSize: "35px",
+      fontSize: "30px",
     },
     [theme.breakpoints.down("xs")]: {
       width: "100%",
@@ -70,21 +74,27 @@ export default makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       width: "125px",
-      marginLeft: "80px",
+    },
+    [theme.breakpoints.down("400")]: {
+      width: "100px",
+      marginLeft: "25px",
     },
   },
   renewButton: { marginRight: "25px" },
   itemTotal: {
     width: "150px",
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: "70px",
-    },
   },
   removeButton: {
     color: "#ff1744",
     marginRight: "30px",
     [theme.breakpoints.down("xs")]: {
-      marginLeft: "15px",
+      marginLeft: "5px",
+    },
+    [theme.breakpoints.down(550)]: {
+      position: "absolute",
+      top: "10px",
+      right: 0,
+      margin: 0,
     },
   },
   emptyCart: {
@@ -94,5 +104,6 @@ export default makeStyles((theme) => ({
     margin: "0 25px",
     fontFamily: "Poppins",
     fontSize: "40px",
+    textAlign: "center",
   },
 }));
