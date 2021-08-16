@@ -22,17 +22,18 @@ export default makeStyles((theme) => ({
   buttonContainer: {
     display: "flex",
     position: "absolute",
-    right: 0,
+    right: 40,
     [theme.breakpoints.down(1100)]: {
       position: "revert",
       justifyContent: "center",
       marginLeft: "50px",
     },
     [theme.breakpoints.down("xs")]: {
-      position: "revert",
       justifyContent: "center",
       marginLeft: "10px",
-      flexWrap: "wrap",
+    },
+    [theme.breakpoints.down(550)]: {
+      alignItems: "center",
     },
   },
   image: {
@@ -74,28 +75,25 @@ export default makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       width: "125px",
-    },
-    [theme.breakpoints.down("400")]: {
-      width: "100px",
       marginLeft: "25px",
     },
+    [theme.breakpoints.down("400")]: {
+      width: "125px",
+    },
   },
-  renewButton: { marginRight: "25px" },
+  renewButton: { marginRight: "10px" },
   itemTotal: {
-    width: "150px",
+    width: "125px",
   },
   removeButton: {
     color: "#ff1744",
-    marginRight: "30px",
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: "5px",
-    },
-    [theme.breakpoints.down(550)]: {
-      position: "absolute",
-      top: "10px",
-      right: 0,
-      margin: 0,
-    },
+  },
+  cartTotal: {
+    position: "absolute",
+    right: 10,
+    top: 675,
+    fontFamily: "Poppins",
+    [theme.breakpoints.down(1100)]: {},
   },
   emptyCart: {
     marginTop: "300px",

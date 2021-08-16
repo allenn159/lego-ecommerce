@@ -50,6 +50,9 @@ const Cart = ({ cart, onUpdateCart, onRemoveFromCart, onEmptyCart }) => {
                 Checkout
               </Button>
             </Link>
+            {/* <p
+              className={classes.cartTotal}
+            >{`Cart Total: ${cart.subtotal.formatted_with_symbol}`}</p> */}
           </Grid>
         </Grid>
       </div>
