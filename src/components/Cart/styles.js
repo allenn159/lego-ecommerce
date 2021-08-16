@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
       textAlign: "center",
     },
   },
-  buttonContainer: {
+  inputContainer: {
     display: "flex",
     position: "absolute",
     right: 40,
@@ -30,9 +30,16 @@ export default makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       justifyContent: "center",
+      alignItems: "center",
       marginLeft: "10px",
     },
-    [theme.breakpoints.down(550)]: {
+    [theme.breakpoints.down(500)]: {
+      flexWrap: "wrap",
+    },
+  },
+  inputContainer2: {
+    display: "flex",
+    [theme.breakpoints.down(400)]: {
       alignItems: "center",
     },
   },
@@ -84,6 +91,12 @@ export default makeStyles((theme) => ({
   renewButton: { marginRight: "10px" },
   itemTotal: {
     width: "125px",
+    [theme.breakpoints.down("xs")]: {
+      width: "100px",
+    },
+    [theme.breakpoints.down(400)]: {
+      width: "130px",
+    },
   },
   removeButton: {
     color: "#ff1744",
@@ -93,7 +106,21 @@ export default makeStyles((theme) => ({
     right: 10,
     top: 675,
     fontFamily: "Poppins",
-    [theme.breakpoints.down(1100)]: {},
+    [theme.breakpoints.down(1100)]: {
+      top: 1510,
+    },
+    [theme.breakpoints.down("xs")]: {
+      top: 975,
+    },
+    [theme.breakpoints.down(485)]: {
+      top: 1080,
+    },
+    [theme.breakpoints.down(400)]: {
+      top: 975,
+    },
+    [theme.breakpoints.down(335)]: {
+      top: 1025,
+    },
   },
   emptyCart: {
     marginTop: "300px",

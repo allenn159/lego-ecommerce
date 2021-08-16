@@ -31,7 +31,7 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
           alt={item.name}
         />
         <p className={classes.productName}>{item.product_name}</p>
-        <div className={classes.buttonContainer}>
+        <div className={classes.inputContainer}>
           <TextField
             className={classes.quantityInput}
             size="medium"
@@ -42,22 +42,24 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
             onChange={onHandleChange}
             inputProps={{ min: 0 }}
           />
-          <IconButton
-            className={classes.renewButton}
-            onClick={onUpdateQuantity}
-          >
-            <AutorenewIcon style={{ fontSize: "30px", color: "#00a152" }} />
-          </IconButton>
-          <p className={classes.itemTotal}>
-            Total: ${item.price.formatted * item.quantity}
-          </p>
-          <IconButton
-            onClick={() => onRemoveFromCart(item.id)}
-            aria-label="delete"
-            className={classes.removeButton}
-          >
-            <CloseIcon style={{ padding: "0 5" }} />
-          </IconButton>
+          <div className={classes.inputContainer2}>
+            <IconButton
+              className={classes.renewButton}
+              onClick={onUpdateQuantity}
+            >
+              <AutorenewIcon style={{ fontSize: "30px", color: "#00a152" }} />
+            </IconButton>
+            <p className={classes.itemTotal}>
+              Total: ${item.price.formatted * item.quantity}
+            </p>
+            <IconButton
+              onClick={() => onRemoveFromCart(item.id)}
+              aria-label="delete"
+              className={classes.removeButton}
+            >
+              <CloseIcon style={{ fontSize: "30px" }} />
+            </IconButton>
+          </div>
         </div>
       </div>
     </div>
