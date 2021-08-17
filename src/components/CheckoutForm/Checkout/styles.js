@@ -6,14 +6,14 @@ export default makeStyles((theme) => ({
   },
   container: {
     marginTop: "95px",
-    width: "auto",
-    margin: "0 300px",
-    [theme.breakpoints.down(1500)]: {
-      margin: "95 200px 0 200px",
+    width: 650,
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.down(700)]: {
+      width: 550,
     },
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: "200px",
-      marginRight: "200px",
+    [theme.breakpoints.down(600)]: {
+      width: "auto",
     },
   },
   paper: {

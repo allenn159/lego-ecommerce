@@ -79,7 +79,9 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
               </Select>
             </Grid>
           </Grid>
-          <Typography variant="h6">Shipping Address</Typography>
+          <Typography style={{ marginTop: "20px" }} variant="h6">
+            Shipping Address
+          </Typography>
 
           <Grid container spacing={3}>
             <FormInput name={"shipFirstName"} label={"First Name"} />
@@ -107,48 +109,52 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
                   </MenuItem>
                 ))}
               </Select>
-              <InputLabel>Shipping Options</InputLabel>
-              <Select
-                value={shippingMethod}
-                fullWidth
-                onChange={(e) => setShippingMethod(e.target.value)}
-                required
-              >
-                {shippingMethods.map((method) => (
-                  <MenuItem key={method.id} value={method}>
-                    {`${method.description} - Free`}
-                  </MenuItem>
-                ))}
-              </Select>
-              <TextField
-                defaultValue="0000 0000 0000 0000"
-                InputProps={{
-                  readOnly: true,
-                }}
-                name={"cardNumber"}
-                label={"Credit Card"}
-              />
-              <TextField
-                defaultValue="01/21"
-                InputProps={{
-                  readOnly: true,
-                }}
-                name={"expiry"}
-                label={"Expiry"}
-              />
-              <TextField
-                defaultValue="***"
-                InputProps={{
-                  readOnly: true,
-                }}
-                name={"cvv"}
-                label={"CVV"}
-              />
             </Grid>
           </Grid>
-          <Button type="submit" color="primary">
-            Next
-          </Button>
+          <Grid style={{ marginTop: "25px" }} item xs={12} sm={12}>
+            <TextField
+              style={{ marginTop: "10px" }}
+              defaultValue="0000 0000 0000 0000"
+              InputProps={{
+                readOnly: true,
+              }}
+              name={"cardNumber"}
+              label={"Credit Card"}
+            />
+            <TextField
+              style={{ marginTop: "10px" }}
+              defaultValue="01/21"
+              InputProps={{
+                readOnly: true,
+              }}
+              name={"expiry"}
+              label={"Expiry"}
+            />
+            <TextField
+              style={{ marginTop: "10px" }}
+              defaultValue="***"
+              InputProps={{
+                readOnly: true,
+              }}
+              name={"cvv"}
+              label={"CVV"}
+            />
+            <InputLabel style={{ marginTop: "20px" }}>
+              Shipping Options
+            </InputLabel>
+            <Select
+              value={shippingMethod}
+              fullWidth
+              onChange={(e) => setShippingMethod(e.target.value)}
+              required
+            >
+              {shippingMethods.map((method) => (
+                <MenuItem key={method.id} value={method}>
+                  {`${method.description} - Free`}
+                </MenuItem>
+              ))}
+            </Select>
+          </Grid>
         </form>
       </FormProvider>
     </>

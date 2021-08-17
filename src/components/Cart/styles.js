@@ -103,24 +103,9 @@ export default makeStyles((theme) => ({
   },
   cartTotal: {
     position: "absolute",
-    right: 10,
-    top: 675,
+    right: 0,
+    marginTop: "65px",
     fontFamily: "Poppins",
-    [theme.breakpoints.down(1100)]: {
-      top: 1510,
-    },
-    [theme.breakpoints.down("xs")]: {
-      top: 975,
-    },
-    [theme.breakpoints.down(485)]: {
-      top: 1080,
-    },
-    [theme.breakpoints.down(400)]: {
-      top: 975,
-    },
-    [theme.breakpoints.down(335)]: {
-      top: 1025,
-    },
   },
   emptyCart: {
     marginTop: "300px",
