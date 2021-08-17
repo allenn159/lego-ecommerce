@@ -1,9 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
   container: {
     marginTop: "95px",
     width: 650,
@@ -17,11 +14,18 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
+    position: "relative",
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
   },
   stepper: {
     padding: theme.spacing(3, 0),
+  },
+  nextButton: {
+    position: "absolute",
+    right: 15,
+    bottom: 10,
+    width: "80px",
   },
 }));

@@ -11,6 +11,7 @@ import {
 import { useForm, FormProvider } from "react-hook-form";
 import FormInput from "./FormInput";
 import { commerce } from "../../lib/commerce";
+import useStyles from "./styles";
 
 const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
   const [shippingStates, setShippingStates] = useState([]);
@@ -19,6 +20,7 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
   const [shippingMethods, setShippingMethods] = useState([]);
   const [shippingMethod, setShippingMethod] = useState("");
 
+  const classes = useStyles();
   const methods = useForm();
 
   const fetchStates = async (checkoutTokenId) => {
@@ -143,6 +145,7 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
               Shipping Options
             </InputLabel>
             <Select
+              style={{ marginBottom: "50px" }}
               value={shippingMethod}
               fullWidth
               onChange={(e) => setShippingMethod(e.target.value)}
@@ -155,6 +158,14 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
               ))}
             </Select>
           </Grid>
+          <Button
+            className={classes.nextButton}
+            color="primary"
+            variant="contained"
+            type="submit"
+          >
+            Next
+          </Button>
         </form>
       </FormProvider>
     </>
