@@ -20,7 +20,7 @@ export default makeStyles((theme) => ({
   },
   image: {
     padding: "15px",
-    height: "300px",
+    height: "400px",
     maxWidth: "100vw",
     [theme.breakpoints.down("sm")]: {
       height: "auto",
