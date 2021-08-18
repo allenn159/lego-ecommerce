@@ -18,8 +18,8 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
   },
   image: {
-    padding: "20px",
-    height: "450px",
+    padding: "15px",
+    height: "300px",
     maxWidth: "100vw",
     [theme.breakpoints.down("sm")]: {
       height: "auto",

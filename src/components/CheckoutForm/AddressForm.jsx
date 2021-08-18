@@ -61,7 +61,6 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
             <FormInput name={"firstName"} label={"First Name"} />
             <FormInput name={"lastName"} label={"Last Name"} />
             <FormInput name={"address"} label={"Billing Address"} />
-            <FormInput name={"email"} label={"Email"} />
             <FormInput name={"city"} label={"City"} />
             <FormInput name={"zip"} label={"Postal Code"} />
             <FormInput name={"country"} label={"Country"} />
@@ -93,7 +92,6 @@ const AddressForm = ({ checkoutToken, setShippingData, nextStep }) => {
               name={"shipAddress"}
               label={"Shipping Address"}
             />
-            <FormInput name={"shipEmail"} label={"Email"} />
             <FormInput name={"shipCity"} label={"City"} />
             <FormInput name={"shipZip"} label={"Postal Code"} />
             <FormInput name={"shipCountry"} label={"Country"} />

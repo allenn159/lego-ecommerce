@@ -26,6 +26,18 @@ export default makeStyles((theme) => ({
     position: "absolute",
     right: 15,
     bottom: 10,
-    width: "80px",
+    width: "120px",
+  },
+  prevButton: {
+    position: "absolute",
+    left: 15,
+    bottom: 10,
+    width: "120px",
+    backgroundColor: "#ffc107",
+  },
+  placeOrderButton: {
+    position: "absolute",
+    right: 15,
+    bottom: 10,
   },
 }));

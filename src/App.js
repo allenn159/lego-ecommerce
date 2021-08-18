@@ -78,7 +78,9 @@ const App = () => {
               onEmptyCart={onEmptyCart}
             />
           </Route>
-          <Route>{cart.id && <Checkout cart={cart.id} />}</Route>
+          <Route>
+            {cart.id && <Checkout cart={cart.id} cartProducts={cart} />}
+          </Route>
         </Switch>
       </ThemeProvider>
     </Router>

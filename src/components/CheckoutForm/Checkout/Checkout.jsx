@@ -8,9 +8,9 @@ import { commerce } from "../../../lib/commerce";
 
 const steps = ["Address & Payment", "Confirmation"];
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, cartProducts }) => {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(1);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
 
@@ -29,6 +29,9 @@ const Checkout = ({ cart }) => {
 
   const Confirmation = () => <div>Confirmation</div>;
 
+  console.log(shippingData);
+  console.log(cartProducts);
+
   const Form = () =>
     activeStep === 0 ? (
       checkoutToken && (
@@ -43,6 +46,7 @@ const Checkout = ({ cart }) => {
         checkoutToken={checkoutToken}
         shippingData={shippingData}
         prevStep={prevStep}
+        cartProducts={cartProducts}
       />
     );
 
