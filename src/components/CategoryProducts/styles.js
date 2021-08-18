@@ -11,6 +11,7 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
     "&:hover": {
       textDecoration: "underline",
+      color: "#2196f3",
     },
   },
   paper: {
@@ -31,6 +32,7 @@ export default makeStyles((theme) => ({
     margin: "20px 0",
     textAlign: "center",
     fontSize: "20px",
+    color: "black",
   },
   loader: {
     marginTop: "350px",

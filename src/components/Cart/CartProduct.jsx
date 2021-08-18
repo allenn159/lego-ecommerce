@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { TextField, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
@@ -17,7 +17,7 @@ const CartProduct = ({ item, onUpdateCart, onRemoveFromCart }) => {
   };
 
   const onUpdateQuantity = () => {
-    if (quantity != prevQuantity) {
+    if (quantity !== prevQuantity) {
       onUpdateCart(item.id, quantity);
       setPrevQuantity(quantity);
     }
