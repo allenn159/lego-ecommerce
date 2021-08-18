@@ -79,7 +79,13 @@ const App = () => {
             />
           </Route>
           <Route>
-            {cart.id && <Checkout cart={cart.id} cartProducts={cart} />}
+            {cart.id && (
+              <Checkout
+                cart={cart.id}
+                cartProducts={cart}
+                onEmptyCart={onEmptyCart}
+              />
+            )}
           </Route>
         </Switch>
       </ThemeProvider>
