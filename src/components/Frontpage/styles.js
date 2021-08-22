@@ -8,31 +8,15 @@ export default makeStyles((theme) => ({
 
   imageOne: {
     width: "99%",
-    [theme.breakpoints.down(1100)]: {
-      height: "auto",
-      width: "95vw",
+    height: "93.9%",
+    [theme.breakpoints.down("md")]: {
+      height: "99%",
     },
   },
   imageTwo: {
-    width: "100%",
-    [theme.breakpoints.down(1100)]: {
-      height: "auto",
-      width: "95vw",
-    },
+    width: "99%",
   },
   imageThree: {
-    width: "100%",
-    [theme.breakpoints.down(1100)]: {
-      height: "auto",
-      width: "95vw",
-    },
-  },
-  categoryText: {
-    fontFamily: "Poppins",
-    fontSize: "35px",
-    marginTop: "30px",
-    textDecoration: "underline",
-    textUnderlinePosition: "under",
-    textAlign: "center",
+    width: "99%",
   },
 }));

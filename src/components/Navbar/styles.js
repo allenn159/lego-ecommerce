@@ -16,10 +16,6 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
     height: "75px",
     paddingTop: "1px",
-    marginLeft: "200px",
-    [theme.breakpoints.down(1500)]: {
-      marginLeft: 0,
-    },
   },
   button: {
     marginLeft: "32px",
