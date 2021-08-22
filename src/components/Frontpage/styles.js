@@ -2,16 +2,37 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   container: {
-    position: "relative",
     marginTop: "95px",
-    display: "flex",
-    justifyContent: "center",
+    textAlign: "center",
   },
-  image: {
-    border: "2px solid black",
-    [theme.breakpoints.down("md")]: {
+
+  imageOne: {
+    width: "99%",
+    [theme.breakpoints.down(1100)]: {
       height: "auto",
-      width: "100%",
+      width: "95vw",
     },
+  },
+  imageTwo: {
+    width: "100%",
+    [theme.breakpoints.down(1100)]: {
+      height: "auto",
+      width: "95vw",
+    },
+  },
+  imageThree: {
+    width: "100%",
+    [theme.breakpoints.down(1100)]: {
+      height: "auto",
+      width: "95vw",
+    },
+  },
+  categoryText: {
+    fontFamily: "Poppins",
+    fontSize: "35px",
+    marginTop: "30px",
+    textDecoration: "underline",
+    textUnderlinePosition: "under",
+    textAlign: "center",
   },
 }));

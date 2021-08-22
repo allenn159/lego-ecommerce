@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
     height: "75px",
     paddingTop: "1px",
     marginLeft: "200px",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down(1500)]: {
       marginLeft: 0,
     },
   },

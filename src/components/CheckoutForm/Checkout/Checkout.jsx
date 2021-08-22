@@ -8,7 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import AddressForm from "../AddressForm";
-import PaymentForm from "../PaymentForm";
+import ConfirmForm from "../ConfirmForm";
 import { Link } from "react-router-dom";
 
 import useStyles from "../styles";
@@ -23,6 +23,9 @@ const Checkout = ({ cart, cartProducts, onEmptyCart }) => {
   const [shippingData, setShippingData] = useState({});
 
   useEffect(() => {
+    if (cartProducts.line_items.length === 0) {
+      return;
+    }
     const generateToken = async () => {
       const token = await commerce.checkout.generateToken(cart, {
         type: "cart",
@@ -63,7 +66,7 @@ const Checkout = ({ cart, cartProducts, onEmptyCart }) => {
         />
       )
     ) : (
-      <PaymentForm
+      <ConfirmForm
         shippingData={shippingData}
         prevStep={prevStep}
         nextStep={nextStep}
@@ -71,8 +74,6 @@ const Checkout = ({ cart, cartProducts, onEmptyCart }) => {
         onEmptyCart={onEmptyCart}
       />
     );
-
-  console.log(shippingData);
 
   return (
     <>

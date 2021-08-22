@@ -3,7 +3,7 @@ import { Grid, Typography, Button } from "@material-ui/core";
 
 import useStyles from "./styles";
 
-const PaymentForm = ({
+const ConfirmForm = ({
   shippingData,
   cartProducts,
   prevStep,
@@ -85,4 +85,4 @@ const PaymentForm = ({
   );
 };
 
-export default PaymentForm;
+export default ConfirmForm;
