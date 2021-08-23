@@ -1,11 +1,9 @@
 import React from "react";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 import useStyles from "./styles";
-import image from "../../assets/mainpage.jpg";
-import thp from "../../assets/treehousepromo.jpg";
-import r2d2 from "../../assets/r2d2.jpeg";
+import Images from "../../assets/index";
 
 const Frontpage = ({ categories }) => {
   const classes = useStyles();
@@ -19,7 +17,7 @@ const Frontpage = ({ categories }) => {
           <Link to="/categoryproduct/popular">
             <img
               className={classes.imageOne}
-              src={image}
+              src={Images.bannerOne}
               alt={"Front Page"}
             ></img>
             <p className={classes.imageOneText}>Shop Now</p>
@@ -28,7 +26,11 @@ const Frontpage = ({ categories }) => {
         <Grid item xs={12} lg={6}>
           <Grid style={{ position: "relative" }} item xs={12}>
             <Link to="/product/prod_eN1ql9rPQ2wz3y">
-              <img className={classes.imageTwo} src={thp} alt={"Front Page"} />
+              <img
+                className={classes.imageTwo}
+                src={Images.bannerTwo}
+                alt={"Front Page"}
+              />
               <p className={classes.imageTwoText}>New LEGO Tree House</p>
               <Button disableRipple className={classes.imageTwoButton}>
                 Shop
@@ -39,7 +41,7 @@ const Frontpage = ({ categories }) => {
             <Link to="/product/prod_NXELwj1q0zl3A4">
               <img
                 className={classes.imageThree}
-                src={r2d2}
+                src={Images.bannerThree}
                 alt={"Front Page"}
               />
               <p className={classes.imageThreeText}>
@@ -52,20 +54,59 @@ const Frontpage = ({ categories }) => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid style={{ justifyContent: "center" }} container>
+
+      <Grid
+        style={{ justifyContent: "center", fontFamily: "Poppins" }}
+        container
+      >
         <Grid item xs={2}>
+          <Link to="/categoryproduct/popular">
+            <img
+              className={classes.promoImages}
+              src={Images.legoLogo}
+              alt="promo"
+            />
+          </Link>
           <div>{categories[0].name}</div>
         </Grid>
         <Grid item xs={2}>
+          <Link to="/categoryproduct/disney">
+            <img
+              className={classes.promoImages}
+              src={Images.disneyLogo}
+              alt="promo"
+            />
+          </Link>
           <div>{categories[1].name}</div>
         </Grid>
         <Grid item xs={2}>
+          <Link to="/categoryproduct/harry-potter">
+            <img
+              className={classes.promoImages}
+              src={Images.hpLogo}
+              alt="promo"
+            />
+          </Link>
           <div>{categories[2].name}</div>
         </Grid>
         <Grid item xs={2}>
+          <Link to="/categoryproduct/star-wars">
+            <img
+              className={classes.promoImages}
+              src={Images.swLogo}
+              alt="promo"
+            />
+          </Link>
           <div>{categories[3].name}</div>
         </Grid>
         <Grid item xs={2}>
+          <Link to="/categoryproduct/kids">
+            <img
+              className={classes.promoImages}
+              src={Images.kidsLogo}
+              alt="promo"
+            />
+          </Link>
           <div>{categories[4].name}</div>
         </Grid>
       </Grid>

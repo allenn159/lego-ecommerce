@@ -99,4 +99,7 @@ export default makeStyles((theme) => ({
       fontSize: "2vw",
     },
   },
+  promoImages: {
+    borderRadius: "5%",
+  },
 }));
