@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 import useStyles from "./styles";
@@ -23,11 +23,29 @@ const Frontpage = () => {
           </Link>
         </Grid>
         <Grid item xs={12} lg={6}>
-          <Grid item xs={12}>
-            <img className={classes.imageTwo} src={thp} alt={"Front Page"} />
+          <Grid style={{ position: "relative" }} item xs={12}>
+            <Link to="/product/prod_eN1ql9rPQ2wz3y">
+              <img className={classes.imageTwo} src={thp} alt={"Front Page"} />
+              <p className={classes.imageTwoText}>New LEGO Tree House</p>
+              <Button disableRipple className={classes.imageTwoButton}>
+                Shop
+              </Button>
+            </Link>
           </Grid>
-          <Grid item xs={12}>
-            <img className={classes.imageThree} src={r2d2} alt={"Front Page"} />
+          <Grid style={{ position: "relative" }} item xs={12}>
+            <Link to="/product/prod_NXELwj1q0zl3A4">
+              <img
+                className={classes.imageThree}
+                src={r2d2}
+                alt={"Front Page"}
+              />
+              <p className={classes.imageThreeText}>
+                Everyone's Favorite Droid
+              </p>
+              <Button disableRipple className={classes.imageThreeButton}>
+                Shop
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </Grid>
