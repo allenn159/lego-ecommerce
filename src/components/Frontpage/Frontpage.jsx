@@ -7,8 +7,11 @@ import image from "../../assets/mainpage.jpg";
 import thp from "../../assets/treehousepromo.jpg";
 import r2d2 from "../../assets/r2d2.jpeg";
 
-const Frontpage = () => {
+const Frontpage = ({ categories }) => {
   const classes = useStyles();
+
+  if (categories.length === 0) return "Loading...";
+  console.log(categories);
   return (
     <div className={classes.container}>
       <Grid container>
@@ -47,6 +50,23 @@ const Frontpage = () => {
               </Button>
             </Link>
           </Grid>
+        </Grid>
+      </Grid>
+      <Grid style={{ justifyContent: "center" }} container>
+        <Grid item xs={2}>
+          <div>{categories[0].name}</div>
+        </Grid>
+        <Grid item xs={2}>
+          <div>{categories[1].name}</div>
+        </Grid>
+        <Grid item xs={2}>
+          <div>{categories[2].name}</div>
+        </Grid>
+        <Grid item xs={2}>
+          <div>{categories[3].name}</div>
+        </Grid>
+        <Grid item xs={2}>
+          <div>{categories[4].name}</div>
         </Grid>
       </Grid>
     </div>

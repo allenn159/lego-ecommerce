@@ -2,14 +2,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   container: {
-    marginTop: "95px",
+    marginTop: "85px",
     textAlign: "center",
   },
   imageOne: {
     width: "99%",
     height: "93.8%",
     [theme.breakpoints.down("md")]: {
-      height: "99%",
+      height: "98.5%",
     },
   },
   imageOneText: {
@@ -28,9 +28,6 @@ export default makeStyles((theme) => ({
   },
   imageTwo: {
     width: "99%",
-    [theme.breakpoints.down("md")]: {
-      height: "100%",
-    },
   },
   imageTwoText: {
     position: "absolute",
@@ -49,7 +46,7 @@ export default makeStyles((theme) => ({
   imageTwoButton: {
     position: "absolute",
     margin: "auto",
-    top: "40%",
+    top: "30%",
     right: "15%",
     width: "15%",
     fontFamily: "Klee One",
@@ -68,9 +65,6 @@ export default makeStyles((theme) => ({
   imageThree: {
     width: "99%",
     transform: "scaleX(-1)",
-    [theme.breakpoints.down("md")]: {
-      height: "100%",
-    },
   },
   imageThreeText: {
     position: "absolute",
@@ -96,11 +90,10 @@ export default makeStyles((theme) => ({
     fontSize: "25px",
     textDecoration: "none",
     backgroundColor: "#e91e63",
-    color: "white",
+    color: "black",
     "&:hover": {
       //you want this to be the same as the backgroundColor above
       backgroundColor: "white",
-      color: "black",
     },
     [theme.breakpoints.down("md")]: {
       fontSize: "2vw",

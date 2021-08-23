@@ -62,7 +62,7 @@ const App = () => {
         />
         <Switch>
           <Route exact path="/">
-            <Frontpage />
+            <Frontpage categories={categories} />
           </Route>
           <Route exact path="/categoryproduct/:slug">
             <CategoryProducts />

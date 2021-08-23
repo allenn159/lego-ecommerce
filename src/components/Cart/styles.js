@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
   container: {
     position: "relative",
-    margin: "95px 25px",
+    margin: "85px 25px",
   },
   paper: {
     position: "relative",
