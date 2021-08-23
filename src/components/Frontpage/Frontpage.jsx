@@ -56,10 +56,14 @@ const Frontpage = ({ categories }) => {
       </Grid>
 
       <Grid
-        style={{ justifyContent: "center", fontFamily: "Poppins" }}
+        spacing={0}
+        style={{
+          justifyContent: "center",
+          fontFamily: "Poppins",
+        }}
         container
       >
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={4} md={3} lg={2}>
           <Link to="/categoryproduct/popular">
             <img
               className={classes.promoImages}
@@ -69,7 +73,7 @@ const Frontpage = ({ categories }) => {
           </Link>
           <div>{categories[0].name}</div>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={4} md={3} lg={2}>
           <Link to="/categoryproduct/disney">
             <img
               className={classes.promoImages}
@@ -79,7 +83,7 @@ const Frontpage = ({ categories }) => {
           </Link>
           <div>{categories[1].name}</div>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={4} md={3} lg={2}>
           <Link to="/categoryproduct/harry-potter">
             <img
               className={classes.promoImages}
@@ -89,7 +93,7 @@ const Frontpage = ({ categories }) => {
           </Link>
           <div>{categories[2].name}</div>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={4} md={3} lg={2}>
           <Link to="/categoryproduct/star-wars">
             <img
               className={classes.promoImages}
@@ -99,7 +103,7 @@ const Frontpage = ({ categories }) => {
           </Link>
           <div>{categories[3].name}</div>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={4} md={3} lg={2}>
           <Link to="/categoryproduct/kids">
             <img
               className={classes.promoImages}

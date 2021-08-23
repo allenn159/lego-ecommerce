@@ -101,5 +101,7 @@ export default makeStyles((theme) => ({
   },
   promoImages: {
     borderRadius: "5%",
+    height: "150px",
+    width: "150px",
   },
 }));
