@@ -12,13 +12,14 @@ const Frontpage = () => {
   return (
     <div className={classes.container}>
       <Grid container>
-        <Grid item xs={12} lg={6}>
+        <Grid style={{ position: "relative" }} item xs={12} lg={6}>
           <Link to="/categoryproduct/popular">
             <img
               className={classes.imageOne}
               src={image}
               alt={"Front Page"}
             ></img>
+            <p className={classes.imageOneText}>Shop Now</p>
           </Link>
         </Grid>
         <Grid item xs={12} lg={6}>
