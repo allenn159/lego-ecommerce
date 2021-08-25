@@ -49,10 +49,7 @@ export default makeStyles((theme) => ({
       width: "80vw",
     },
   },
-  form: {
-    display: "flex",
-    flexDirection: "row",
-  },
+
   button: {
     marginLeft: "25px",
     marginRight: "20px",
