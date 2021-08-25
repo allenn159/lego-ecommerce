@@ -9,7 +9,7 @@ const Frontpage = ({ categories }) => {
   const classes = useStyles();
 
   if (categories.length === 0) return "Loading...";
-
+  
   return (
     <div className={classes.container}>
       <Grid container>
