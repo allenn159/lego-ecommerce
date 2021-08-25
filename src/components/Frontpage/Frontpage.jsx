@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Button, Typography } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 import useStyles from "./styles";
@@ -9,7 +9,7 @@ const Frontpage = ({ categories }) => {
   const classes = useStyles();
 
   if (categories.length === 0) return "Loading...";
-  console.log(categories);
+
   return (
     <div className={classes.container}>
       <Grid container>
