@@ -50,8 +50,6 @@ const App = () => {
     fetchCart();
   }, []);
 
-  console.log("I rendered!");
-
   return (
     <Router>
       <ThemeProvider theme={theme}>
