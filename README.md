@@ -2,6 +2,7 @@ E-commerce Concept App
 
 Developed with React, Material UI, and Commerce JS.
 
+Project can be viewed here https://lego-ecommerce.vercel.app/
 
 Summary
 
