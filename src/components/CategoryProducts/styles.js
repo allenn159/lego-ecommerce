@@ -23,8 +23,7 @@ export default makeStyles((theme) => ({
     height: "400px",
     maxWidth: "100vw",
     [theme.breakpoints.down("sm")]: {
-      height: "90%",
-      width: "90%",
+      width: "auto",
     },
   },
   productLabel: {
