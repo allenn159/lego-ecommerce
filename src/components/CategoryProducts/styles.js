@@ -20,8 +20,8 @@ export default makeStyles((theme) => ({
   },
   image: {
     padding: "15px",
-    height: "400px",
-    maxWidth: "85vw",
+    height: "350px",
+    maxWidth: "100vw",
     [theme.breakpoints.down("sm")]: {
       width: "auto",
     },
