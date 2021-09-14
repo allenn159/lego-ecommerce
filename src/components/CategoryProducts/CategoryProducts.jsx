@@ -14,14 +14,12 @@ const CategoryProducts = () => {
 
   const fetchSlugs = async () => {
     setLoading(true);
-    await commerce.products
-      .list({
-        category_slug: [path],
-      })
-      .then((res) => {
-        setProducts(res.data);
-        setLoading(false);
-      });
+    const { data } = await commerce.products.list({
+      category_slug: [path],
+    });
+
+    setProducts(data);
+    setLoading(false);
   };
 
   useEffect(() => {

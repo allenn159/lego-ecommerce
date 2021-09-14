@@ -16,10 +16,9 @@ const ProductPage = ({ onAddToCart }) => {
 
   const fetchProduct = async () => {
     setLoading(true);
-    await commerce.products.retrieve(path).then((p) => {
-      setProduct(p);
-      setLoading(false);
-    });
+    const product = await commerce.products.retrieve(path);
+    setProduct(product);
+    setLoading(false);
   };
 
   useEffect(() => {
